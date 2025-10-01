@@ -118,30 +118,6 @@ upstream  git@github.com:opariffazman/bootcamp-devops.git (push)
 
 ---
 
-#### Step 4: Explore Repository Structure
-
-```bash
-# List files
-ls -la
-
-# Check README
-cat README.md
-
-# Check structure
-tree  # atau 'ls -R' jika tree tak installed
-```
-
-**Expected structure:**
-```
-bootcamp-devops/
-├── README.md
-├── .gitignore
-└── peserta/
-    └── .gitkeep
-```
-
----
-
 ### ✅ Lab 2 Checklist
 
 - [ ] Repository forked successfully
