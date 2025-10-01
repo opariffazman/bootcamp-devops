@@ -124,7 +124,7 @@ Copy template ni dan edit dengan maklumat anda:
 
 ```bash
 # Check file exists
-ls -la
+ls
 
 # Preview content
 cat nama-anda.md
