@@ -1,36 +1,18 @@
-\# Biodata Peserta
+# Biodata Peserta
 
+## Maklumat Peribadi
+- **Nama Penuh:** KAMARIZA SUHAINI
 
+## Pekerjaan
+- **Jawatan Semasa:** Remote Desktop
 
-\## Maklumat Peribadi
+## Hobi
+- 🎯 Berlari
 
-\- \*\*Nama Penuh:\*\* Kamariza bin Mohamad Suhaini
+## Fun Fact
+> berlalri 10KM tanpa henti
 
-
-
-\## Pekerjaan
-
-\- \*\*Jawatan Semasa:\*\* Remote Desktop
-
-
-
-\## Hobi
-
-\- 🎯 Berlari
-
-
-
-\## Fun Fact
-
-> saya boleh berlari 10KM tanpa berhenti
-
-
-
-\## Hubungi Saya
-
-\- 📧 Email: kama.ecophoton@gmail.com
-
-\- 🔗 LinkedIn: linkedin.com/in/kamariza-mohamad-suhaini-391438117
-
-\- 🐙 GitHub: kamariza30
-
+## Hubungi Saya
+- 📧 Email: kama.ecophoton@gmail.com
+- 🔗 LinkedIn: linkedin.com/in/kamariza-mohamad-suhaini-391438117
+- 🐙 GitHub: kamariza30
