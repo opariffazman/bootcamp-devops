@@ -16,4 +16,3 @@
 \- 📧 Email: vimaldeep.singhw@gmail.com
 \- 🔗 LinkedIn: https://www.linkedin.com/in/vimaldeep-singh-wathan/
 \- 🐙 GitHub: Vimal1802
-
