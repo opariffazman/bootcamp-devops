@@ -1,9 +1,11 @@
 ## LAB 2: FORK & CLONE REPOSITORY
 
 ### 🎯 Objektif
+
 Fork repository instructor dan clone ke komputer sendiri.
 
 ### 📋 Repository Info
+
 **Repository:** `github.com/opariffazman/bootcamp-devops`
 
 ### 📝 Steps
@@ -26,9 +28,9 @@ Fork repository instructor dan clone ke komputer sendiri.
 
 ---
 
-#### Step 2: Clone YOUR Fork
+#### Step 2: Clone Fork Anda
 
-1. **Get SSH URL dari YOUR fork:**
+1. **Get SSH URL dari fork fork:**
    - Di YOUR forked repo page
    - Click **"Code"** button (hijau)
    - Pilih **"SSH"** tab
@@ -37,10 +39,6 @@ Fork repository instructor dan clone ke komputer sendiri.
 2. **Open terminal dan navigate ke folder kerja:**
 
 ```bash
-# Contoh: Navigate ke Documents
-cd ~/Documents
-
-# Atau buat folder baru
 mkdir devops-labs
 cd devops-labs
 ```
@@ -53,37 +51,18 @@ git clone git@github.com:[your-username]/bootcamp-devops.git
 
 **Gantikan `[your-username]` dengan username GitHub anda!**
 
-**Expected output:**
-```
-Cloning into 'bootcamp-devops'...
-remote: Enumerating objects: 15, done.
-remote: Counting objects: 100% (15/15), done.
-remote: Compressing objects: 100% (10/10), done.
-remote: Total 15 (delta 2), reused 15 (delta 2), pack-reused 0
-Receiving objects: 100% (15/15), done.
-Resolving deltas: 100% (2/2), done.
-```
-
-4. **Enter directory:**
+4. **Masuk ke dalam folder dan verify git:**
 
 ```bash
+# Masuk directory
 cd bootcamp-devops
-```
 
-5. **Verify clone successful:**
-
-```bash
-# Check files
-ls -la
-
-# Check git status
-git status
-
-# Check remote
+# check url
 git remote -v
 ```
 
 **Expected output untuk `git remote -v`:**
+
 ```
 origin  git@github.com:your-username/bootcamp-devops.git (fetch)
 origin  git@github.com:your-username/bootcamp-devops.git (push)
@@ -100,11 +79,13 @@ git remote add upstream git@github.com:opariffazman/bootcamp-devops.git
 ```
 
 **Verify:**
+
 ```bash
 git remote -v
 ```
 
 **Expected output:**
+
 ```
 origin    git@github.com:your-username/bootcamp-devops.git (fetch)
 origin    git@github.com:your-username/bootcamp-devops.git (push)
@@ -113,6 +94,7 @@ upstream  git@github.com:opariffazman/bootcamp-devops.git (push)
 ```
 
 **Penjelasan:**
+
 - **origin** = your fork (anda boleh push)
 - **upstream** = original repo (anda tak boleh push, hanya fetch)
 
