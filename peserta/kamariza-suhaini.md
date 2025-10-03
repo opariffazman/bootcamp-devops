@@ -28,7 +28,7 @@
 
 \## Hubungi Saya
 
-\- 📧 Email: kama.ecophoton@gmail.com
+\- 📧 Email: kamarizasuhaini@gmail.com
 
 \- 🔗 LinkedIn: linkedin.com/in/kamariza-mohamad-suhaini-391438117
 
