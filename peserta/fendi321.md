@@ -1,36 +1,36 @@
-\# Biodata Peserta
+# Biodata Peserta
 
 
 
-\## Maklumat Peribadi
+## Maklumat Peribadi
 
-\- \*\*Nama Penuh:\*\* Muhamad Affindi
-
-
-
-\## Pekerjaan
-
-\- \*\*Jawatan Semasa:\*\* tidak bekerja
+- **Nama Penuh:** Muhamad Affindi
 
 
 
-\## Hobi
+## Pekerjaan
 
-\- 🎯 \[Suka Devops]
-
-
-
-\## Fun Fact
-
-> \[Never stop learning]
+- **Jawatan Semasa:** tidak bekerja
 
 
 
-\## Hubungi Saya
+## Hobi
 
-\- 📧 Email: maffindi@yahoo.com
+- 🎯 \[Suka Devops]
 
-\- 🔗 LinkedIn: https://www.linkedin.com/in/maffindi/
 
-\- 🐙 GitHub: fendi321
+
+## Fun Fact
+
+> [Never stop learning]
+
+
+
+## Hubungi Saya
+
+- 📧 Email: maffindi@yahoo.com
+
+- 🔗 LinkedIn: https://www.linkedin.com/in/maffindi/
+
+- 🐙 GitHub: fendi321
 
