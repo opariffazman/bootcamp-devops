@@ -1,30 +1,22 @@
 # Biodata Peserta
 
-
-
 ## Maklumat Peribadi
 
 - **Nama Penuh:** Muhamad Affindi
 
-
-
 ## Pekerjaan
 
-- **Jawatan Semasa:** tidak bekerja
-
+- **Jawatan Semasa:** Masih Tidak bekerja, diberhentikan
 
 
 ## Hobi
 
-- 🎯 \[Suka Devops]
-
+- 🎯 [Suka Devops]
 
 
 ## Fun Fact
 
-> [Never stop learning]
-
-
+> Never stop learning
 
 ## Hubungi Saya
 
