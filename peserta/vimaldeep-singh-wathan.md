@@ -1,18 +1,18 @@
 # Biodata Peserta
 
-\## Maklumat Peribadi
-\-**Nama Penuh**:Vimaldeep Singh Wathan
+## Maklumat Peribadi
+- **Nama Penuh:** Vimaldeep Singh Wathan
 
-\## Pekerjaan
-\-**Jawatan Semasa:** Cloud BCP Specialist
+## Pekerjaan
+- **Jawatan Semasa:** Cloud BCP Specialist
 
-\## Hobi
-\- 🎯 Running
+## Hobi
+- 🎯 Running
 
-\## Fun Fact
-\> Suka tengok crime documentary 
+## Fun Fact
+> Suka tengok documentari
 
-\## Hubungi Saya
-\- 📧 Email: vimaldeep.singhw@gmail.com
-\- 🔗 LinkedIn: https://www.linkedin.com/in/vimaldeep-singh-wathan/
-\- 🐙 GitHub: Vimal1802
+## Hubungi Saya
+- 📧 Email: Vimaldeep.singhw@gmail.com
+- 🔗 LinkedIn: https://www.linkedin.com/in/vimaldeep-singh-wathan/
+- 🐙 GitHub: Vimal1802
