@@ -1,7 +1,7 @@
 # Biodata Peserta
 
 ## Maklumat Peribadi
-- **Nama Penuh:** Afiq-DevOps
+- **Nama Penuh:** afiq-devOps
 
 ## Pekerjaan
 - **Jawatan Semasa:** Analysts
@@ -10,9 +10,9 @@
 - 🎯 Gaming
 
 ## Fun Fact
-> [Satu perkara menarik tentang anda]
+> nanti update
 
 ## Hubungi Saya
-- 📧 Email: [email anda - optional]
-- 🔗 LinkedIn: [LinkedIn profile - optional]
+- 📧 Email: zaid.afiq.b@gmail.com
+- 🔗 LinkedIn: nanti update
 - 🐙 GitHub: z4id-27
