@@ -1,36 +1,18 @@
-\# Biodata Peserta
+# Biodata Peserta
 
+## Maklumat Peribadi
+- **Nama Penuh:** vsjen2025
 
+## Pekerjaan
+- **Jawatan Semasa:** IT Executive
 
-\## Maklumat Peribadi
+## Hobi
+- 🎯 Badminton
 
-\- \*\*Nama Penuh:\*\* VOON SHIONG JEN
-
-
-
-\## Pekerjaan
-
-\- \*\*Jawatan Semasa:\*\* IT EXECUTIVE
-
-
-
-\## Hobi
-
-\- 🎯 Badminton
-
-
-
-\## Fun Fact
-
+## Fun Fact
 > Suka cari makan
 
-
-
-\## Hubungi Saya
-
-\- 📧 Email: vsjen2015@gmail.com
-
-\- 🔗 LinkedIn: vsjen2025
-
-\- 🐙 GitHub: vsjen2025
-
+## Hubungi Saya
+- 📧 Email: vsjen2015@gmail.com
+- 🔗 LinkedIn: vsjen2015
+- 🐙 GitHub: vsjen2025
