@@ -1,36 +1,18 @@
-\# Biodata Peserta
+# Biodata Peserta
 
+## Maklumat Peribadi
+- **Nama Penuh:** Muhammad Mufattah Bin Shafi
 
+## Pekerjaan
+- **Jawatan Semasa:** Senior IT Executive
 
-\## Maklumat Peribadi
+## Hobi
+- 🎯 Dota2
 
-\- \*\*Nama Penuh:\*\* \[Muhammad Mufattah]
+## Fun Fact
+> Bawak basikal lepas tangan
 
-
-
-\## Pekerjaan
-
-\- \*\*Jawatan Semasa:\*\* \[IT Executive]
-
-
-
-\## Hobi
-
-\- 🎯 \[Dota]
-
-
-
-\## Fun Fact
-
-> \[Handsome]
-
-
-
-\## Hubungi Saya
-
-\- 📧 Email: \[mufattahshafi@gmail.com]
-
-\- 🔗 LinkedIn: \[LinkedIn profile - optional]
-
-\- 🐙 GitHub: \[mufattahshafi]
-
+## Hubungi Saya
+- 📧 Email: mufattahshafi@gmail.com
+- 🔗 LinkedIn: mufattahshafi
+- 🐙 GitHub: mufattahshafi
