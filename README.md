@@ -12,9 +12,9 @@
 
 ## 🎯 SESI 6: AWS
 
-5. [LAB5](labs/lab5.md)
-6. [LAB6](labs/lab6.md)
-7. [LAB7](labs/lab7.md)
-8. [LAB8](labs/lab8.md)
-9. [LAB9](labs/lab9.md)
-10. [LAB10](labs/lab10.md)
+5. [LAB5](labs/lab5.md): Buat Akaun AWS
+6. [LAB6](labs/lab6.md): Launch EC2 Instance
+7. [LAB7](labs/lab7.md): Connect via SSH
+8. [LAB8](labs/lab8.md): Install Nginx
+9. [LAB9](labs/lab9.md): Test dari browser
+10. [LAB10](labs/lab10.md): Cleanup
