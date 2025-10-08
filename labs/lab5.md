@@ -10,15 +10,16 @@
 6. Masukkan code dan set password
 7. Click **"Continue"**
 
-### Langkah 2: Maklumat Peribadi
+### Langkah 2: Pilih Plan
 
-1. Pilih **"Personal"** untuk account type
-2. Isi maklumat:
+1. Pilih **"Free (6 Months)"** untuk account plan
+2. Pilih **Personal**
+3. Isi maklumat:
    - Nama penuh
    - Nombor telefon: +60xxxxxxxxx
-   - Alamat lengkap
-3. Check agreement box
-4. Click **"Continue"**
+   - Alamat
+4. Check agreement box
+5. Click **"Continue"**
 
 ### Langkah 3: Payment Information
 
