@@ -1,4 +1,4 @@
-## LAB10: CLEANUP
+## LAB 10: CLEANUP
 
 **PENTING:** Mesti terminate instance untuk elakkan charges!
 

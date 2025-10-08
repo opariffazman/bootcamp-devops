@@ -1,4 +1,4 @@
-## LAB9: TEST DARI BROWSER
+## LAB 9: TEST DARI BROWSER
 
 ### Langkah 1: Dapatkan Public IP
 

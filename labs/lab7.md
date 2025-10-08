@@ -1,4 +1,4 @@
-## LAB7: CONNECT VIA SSH
+## LAB 7: CONNECT VIA SSH
 
 ### Langkah 1: Dapatkan Public IP
 

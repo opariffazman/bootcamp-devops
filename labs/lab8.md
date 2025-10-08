@@ -1,4 +1,4 @@
-## LAB8: INSTALL NGINX
+## LAB 8: INSTALL NGINX
 
 Semua command di bawah perlu run **dalam SSH session**.
 

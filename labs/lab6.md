@@ -1,4 +1,4 @@
-## LAB 5: LAUNCH EC2 INSTANCE
+## LAB 6: LAUNCH EC2 INSTANCE
 
 ### Langkah 1: Pergi ke EC2
 
