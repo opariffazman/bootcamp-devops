@@ -45,19 +45,3 @@
 2. Anda sekarang dalam AWS Console!
 
 ---
-
-## CHECKLIST
-
-Pastikan semua complete:
-
-- ☐ AWS account created
-- ☐ EC2 instance launched (Ubuntu 24.04 LTS)
-- ☐ Instance type: t3.micro atau t2.micro
-- ☐ Key pair created dan downloaded
-- ☐ Security group configured (SSH + HTTP)
-- ☐ Connected via SSH
-- ☐ Nginx installed dan running
-- ☐ Website accessible dari browser
-- ☐ Instance terminated
-
----

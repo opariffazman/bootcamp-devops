@@ -18,3 +18,15 @@
 8. [LAB8](labs/lab8.md): Install Nginx
 9. [LAB9](labs/lab9.md): Test dari browser
 10. [LAB10](labs/lab10.md): Cleanup
+
+### CHECKLIST
+
+- ☐ AWS account created
+- ☐ EC2 instance launched (Ubuntu 24.04 LTS)
+- ☐ Instance type: t3.micro atau t2.micro
+- ☐ Key pair created dan downloaded
+- ☐ Security group configured (SSH + HTTP)
+- ☐ Connected via SSH
+- ☐ Nginx installed dan running
+- ☐ Website accessible dari browser
+- ☐ Instance terminated
