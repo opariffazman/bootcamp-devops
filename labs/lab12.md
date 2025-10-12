@@ -19,5 +19,5 @@
 
 ### Langkah 3: Sahkan di VPC Resource Map
 
-1. Click "Your VPC" dan pilih VPC yang anda: `my-vpc`
+1. Click "Your VPC" dan pilih VPC anda: `my-vpc`
 2. Rujuk "Resource Map" dan pastikan ia mengandungi dua subnet anda
