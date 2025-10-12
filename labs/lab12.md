@@ -1,23 +1,15 @@
-## LAB 12: Create Subnet
+## LAB 12: Internet Gateway
 
-![subnet-diagram](../assets/subnet.png)
+![igw-diagram](../assets/igw.png)
 
-### Langkah 1: Buat Public Subnet
+### Langkah 1: Buat Internet Gateway
 
-1. Pergi ke "Subnet" dalam dashboard VPC
-2. Click "Create Subnet" dan isikan nama: `public-subnet`
-3. Pastikan pilih VPC yang anda buat sebelum ni (bukan VPC default)
-4. Pilih Availability Zone (ap-southeast-1a)
-5. Isikan IPv4 CIDR block dengan nilai ini: `10.0.0.0/24`
+1. Pergi ke "Internet Gateway" dalam dashboard VPC
+2. Click "Create internet gateway" dan isikan nama: `my-igw`
+3. Click "Attach VPC" dan pilih VPC anda
 
-### Langkah 2: Buat Private Subnet
-
-1. Click "Create Subnet" dan isikan nama: `private-subnet`
-2. Pastikan pilih VPC yang anda buat sebelum ni (bukan VPC default)
-3. Pilih Availability Zone (ap-southeast-1a)
-4. Isikan IPv4 CIDR block dengan nilai ini: `10.0.2.0/24`
-
-### Langkah 3: Sahkan di VPC Resource Map
+### Langkah 2: Sahkan di VPC Resource Map
 
 1. Click "Your VPC" dan pilih VPC anda: `my-vpc`
-2. Rujuk "Resource Map" dan pastikan ia mengandungi dua subnet anda
+2. Rujuk "Resource Map" dan lihat jika ada sambungan ke Internet Gateway
+3. Anda akan dapati tiada kerana kita belum setup Route Table
