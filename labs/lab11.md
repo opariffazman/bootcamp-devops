@@ -1,6 +1,6 @@
 ## LAB 11: Create VPC
 
-![vpc-diagram](assets/vpc.png)
+![vpc-diagram](../assets/vpc.png)
 
 ### Langkah 1: Pergi ke "VPC" Dashboard
 
