@@ -13,4 +13,16 @@
 
 1. Click "Your VPC" dan pilih VPC anda: `my-vpc`
 2. Rujuk "Resource Map" dan lihat jika ada sambungan ke Internet Gateway
-3. Anda akan dapati tiada kerana kita belum setup Route Table
+
+### Langkah 3: Tambah "tag" di Route Table
+
+1. Click "Route Table" di `my-vpc` "Resource map"
+2. Click "Actions" > "Manage Tags"
+3. Tambah "Key": `Name` dan "Value": `public-rt`
+
+### Langkah 4: Buat Route Table baru
+
+1. Kembali ke "Route Tables"
+2. Click "Create route table"
+3. Namakan sebagai `private-rt`
+4. Pastikan VPC ialah `my-vpc` dan click "Create route table"
