@@ -10,6 +10,6 @@
 
 ### Langkah 2: Buat VPC baru
 
-1. Pilih "Create VPC"
+1. Click "Create VPC" dan isikan name: `my-vpc`
 2. Pastikan option "VPC only"
 3. Isikan IPv4 CIDR block dengan nilai ini: `10.0.0.0/22`
