@@ -1,6 +1,6 @@
 ## LAB 14: Create Subnet
 
-![subnet-diagram](../assets/subnet.png)
+![subnets-diagram](../assets/subnets.png)
 
 ### Langkah 1: Buat Private Subnet
 
