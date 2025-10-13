@@ -1,4 +1,4 @@
-## LAB 14: Create Subnet
+## LAB 14: Subnets
 
 ![subnets-diagram](../assets/subnets.png)
 

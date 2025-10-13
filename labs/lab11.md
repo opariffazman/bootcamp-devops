@@ -1,4 +1,4 @@
-## LAB 11: Create VPC
+## LAB 11: VPC
 
 ![vpc-diagram](../assets/vpc.png)
 
