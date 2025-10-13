@@ -2,31 +2,38 @@
 
 ## 🎯 SESI 4: GITHUB
 
-1. [LAB1](labs/lab1.md): Setup SSH key untuk GitHub authentication
-2. [LAB2](labs/lab2.md): Fork dan clone repository bootcamp
-3. [LAB3](labs/lab3.md): Buat branch dan tambah biodata sendiri
-4. [LAB4](labs/lab4.md): Submit Pull Request untuk review
+[LAB1](labs/lab1.md): Setup SSH key untuk GitHub authentication
 
+[LAB2](labs/lab2.md): Fork dan clone repository bootcamp
+
+[LAB3](labs/lab3.md): Buat branch dan tambah biodata sendiri
+
+[LAB4](labs/lab4.md): Submit Pull Request untuk review
 
 ---
 
 ## 🎯 SESI 6: AWS
 
-5. [LAB5](labs/lab5.md): Buat Akaun AWS
-6. [LAB6](labs/lab6.md): Launch EC2 Instance
-7. [LAB7](labs/lab7.md): Connect via SSH
-8. [LAB8](labs/lab8.md): Install Nginx
-9. [LAB9](labs/lab9.md): Test dari browser
-10. [LAB10](labs/lab10.md): Cleanup
+[LAB5](labs/lab5.md): Buat Akaun AWS
 
-### CHECKLIST
+[LAB6](labs/lab6.md): Launch EC2 Instance
 
-- ☐ AWS account created
-- ☐ EC2 instance launched (Ubuntu 24.04 LTS)
-- ☐ Instance type: t3.micro atau t2.micro
-- ☐ Key pair created dan downloaded
-- ☐ Security group configured (SSH + HTTP)
-- ☐ Connected via SSH
-- ☐ Nginx installed dan running
-- ☐ Website accessible dari browser
-- ☐ Instance terminated
+[LAB7](labs/lab7.md): Connect via SSH
+
+[LAB8](labs/lab8.md): Install Nginx
+
+[LAB9](labs/lab9.md): Test dari browser
+
+[LAB10](labs/lab10.md): Cleanup
+
+---
+
+## 🎯 SESI 7: AWS Networking
+
+[LAB11](/labs/lab11.md): VPC
+
+[LAB12](/labs/lab12.md): Internet Gateway
+
+[LAB13](/labs/lab13.md): Route Table
+
+[LAB14](/labs/lab14.md): Subnets
