@@ -48,3 +48,10 @@
 
 [LAB17](/labs/lab17.md): Network Communication
 
+### 🎯 SESI 7 + 8: AWS Networking & Security (Optional)
+
+> **Nota**: Lab ini tidak wajib untuk pemula. Boleh cuba jika berminat.
+
+[LAB18](/labs/lab18.md): NAT Gateway (💰 Ada kos - pastikan cleanup!)
+
+[LAB19](/labs/lab19.md): VPC Endpoints (Lebih murah untuk AWS services)
