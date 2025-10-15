@@ -13,134 +13,79 @@
 9. Isikan Role name: `EC2-SSM-Role`
 10. Click "Create role"
 
-### Langkah 2: Buat Security Group untuk SSM
-
-1. Pergi ke "Security Groups" dalam dashboard VPC
-2. Click "Create security group"
-3. Isikan maklumat berikut:
-   - Security group name: `ssm-sg`
-   - Description: `Allow SSM access to EC2`
-   - VPC: `my-vpc`
-4. **Inbound rules**: Jangan tambah apa-apa (leave empty)
-5. **Outbound rules**: Pastikan ada rule berikut (default):
-   - Type: All traffic
-   - Destination: 0.0.0.0/0
-6. Click "Create security group"
-
-> **Nota**: Security group ini tidak memerlukan inbound rules kerana SSM menggunakan outbound connection ke AWS Systems Manager endpoint.
-
-### Langkah 3: Launch EC2 Instance di Public Subnet
+### Langkah 2: Attach IAM Role ke Public Instance
 
 1. Pergi ke EC2 console
-2. Click "Launch instance"
-3. Isikan maklumat berikut:
-   - Name: `public-ec2-ssm`
-   - AMI: **Ubuntu Server 24.04 LTS**
-   - Architecture: **64-bit (x86)**
-   - Instance type: t3.micro
-   - **Key pair**: Proceed without a key pair
-4. Dalam "Network settings":
-   - VPC: `my-vpc`
-   - Subnet: `public-subnet`
-   - Auto-assign public IP: Enable
-   - Security group: Pilih existing `ssm-sg`
-5. Dalam "Advanced details":
-   - IAM instance profile: `EC2-SSM-Role`
-6. Click "Launch instance"
+2. Pilih instance `public-web-server` (dari lab sebelumnya)
+3. Click "Actions" → "Security" → "Modify IAM role"
+4. Pilih IAM role: `EC2-SSM-Role`
+5. Click "Update IAM role"
 
-### Langkah 4: Launch EC2 Instance di Private Subnet
+> **Nota**: Tunggu 2-3 minit untuk instance register dengan Systems Manager service.
 
-1. Click "Launch instance" sekali lagi
-2. Isikan maklumat berikut:
-   - Name: `private-ec2-ssm`
-   - AMI: **Ubuntu Server 24.04 LTS**
-   - Architecture: **64-bit (x86)**
-   - Instance type: t3.micro
-   - **Key pair**: Proceed without a key pair
-3. Dalam "Network settings":
-   - VPC: `my-vpc`
-   - Subnet: `private-subnet`
-   - Auto-assign public IP: Disable
-   - Security group: Pilih existing `ssm-sg`
-4. Dalam "Advanced details":
-   - IAM instance profile: `EC2-SSM-Role`
-5. Click "Launch instance"
+### Langkah 3: Connect menggunakan Session Manager
 
-### Langkah 5: Connect ke Public EC2 menggunakan Session Manager
-
-1. Pergi ke EC2 console
-2. Pilih instance `public-ec2-ssm`
-3. Tunggu hingga **Status check**: 2/2 checks passed
+1. Pilih instance `public-web-server`
+2. Click "Connect"
+3. Pilih tab "Session Manager"
 4. Click "Connect"
-5. Pilih tab "Session Manager"
-6. Click "Connect"
-7. Terminal akan terbuka di browser anda
+5. Terminal akan terbuka di browser anda
 
-> **Nota**: Instance `public-ec2-ssm` akan berjaya connect kerana ia berada di public subnet dengan internet access melalui Internet Gateway.
+✅ Berjaya connect tanpa SSH key!
 
-### Langkah 6: Install Nginx di Public EC2
+### Langkah 4: Test Command di Session Manager
 
-Dalam Session Manager terminal, jalankan command berikut:
+Dalam Session Manager terminal, cuba jalankan:
 
 ```bash
-# Update system
-sudo apt update
+# Check user
+whoami
 
-# Install nginx
-sudo apt install nginx -y
+# Check hostname
+hostname
 
-# Start nginx
-sudo systemctl start nginx
-sudo systemctl enable nginx
-
-# Check status
+# Check nginx status
 sudo systemctl status nginx
-```
 
-Pastikan output menunjukkan:
-```
-Active: active (running)
-```
-
-Press **q** untuk keluar.
-
-### Langkah 7: Test Nginx dari Localhost
-
-Dalam Session Manager terminal:
-
-```bash
+# Test nginx
 curl localhost
 ```
 
-Anda akan nampak banyak HTML code. Ini bermakna nginx berfungsi!
+Tekan butang **q** untuk keluar dari status.
 
-> **Nota**: Anda tidak boleh access dari browser kerana security group `ssm-sg` tidak membenarkan HTTP traffic dari internet. Ini demonstrasi perbezaan antara access dari dalam instance dan access dari luar.
-
-### Langkah 8: Cuba Connect ke Private EC2 (Akan Gagal)
+### Langkah 5: Attach IAM Role ke Private Instance
 
 1. Pergi ke EC2 console
-2. Pilih instance `private-ec2-ssm`
-3. Tunggu hingga **Status check**: 2/2 checks passed
-4. Click "Connect"
-5. Pilih tab "Session Manager"
-6. Anda akan dapat mesej: **"The instance you selected is not configured to use Session Manager"** atau button "Connect" akan disabled
+2. Pilih instance `private-web-server`
+3. Click "Actions" → "Security" → "Modify IAM role"
+4. Pilih IAM role: `EC2-SSM-Role`
+5. Click "Update IAM role"
 
-> **Perbezaan**: Instance di private subnet tidak dapat connect ke AWS Systems Manager kerana:
+### Langkah 6: Cuba Connect ke Private Instance (Akan Gagal)
+
+1. Tunggu 2-3 minit
+2. Pilih instance `private-web-server`
+3. Click "Connect"
+4. Pilih tab "Session Manager"
+5. Button "Connect" akan **disabled** atau dapat error message
+
+> **Sebab Gagal**: Walaupun instance ada IAM role, ia tidak dapat register dengan Systems Manager kerana:
+>
 > - Tiada Internet Gateway access
-> - Tiada NAT Gateway (belum dibuat)
-> - Tiada VPC Endpoints untuk SSM (alternatif untuk private subnet)
+> - Tiada NAT Gateway
+> - Tiada VPC Endpoints untuk SSM
 
-### Langkah 9: Semak Status di Systems Manager
+### Langkah 7: Semak Status di Systems Manager
 
 1. Pergi ke AWS Systems Manager console
 2. Click "Fleet Manager" di sidebar
-3. Anda akan nampak hanya `public-ec2-ssm` dalam senarai managed instances
-4. `private-ec2-ssm` tidak akan muncul kerana ia tidak dapat communicate dengan Systems Manager service
+3. Anda akan nampak hanya `public-web-server` dalam senarai managed instances
+4. `private-web-server` tidak akan muncul
 
-### Kesimpulan
+**Kelebihan SSM:**
 
-- **IAM Role** dengan policy `AmazonSSMManagedInstanceCore` diperlukan untuk SSM access
-- **SSM Session Manager** membolehkan connect ke EC2 tanpa SSH key dan tanpa expose port 22
-- Instance di **public subnet** boleh connect ke SSM melalui Internet Gateway
-- Instance di **private subnet** tidak boleh connect ke SSM tanpa NAT Gateway atau VPC Endpoints
-- **Security Group** untuk SSM hanya memerlukan outbound rules (tidak perlu inbound rules)
+- Tidak perlu SSH key
+- Tidak perlu expose port 22
+- Tidak perlu security group inbound rules
+- Audit trail automatic di CloudTrail
+- Session logging boleh enable
