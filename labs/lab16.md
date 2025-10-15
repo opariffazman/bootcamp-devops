@@ -11,20 +11,37 @@
 
 ✅ Berjaya connect tanpa SSH key!
 
-### Langkah 2: Test Command di Session Manager
+### Langkah 2: Install Nginx menggunakan SSM
 
-Dalam Session Manager terminal, cuba jalankan:
+Dalam Session Manager terminal, jalankan commands:
 
 ```bash
-whoami
-hostname
-sudo systemctl status nginx
+sudo dnf install nginx -y
+sudo systemctl start nginx
+sudo systemctl enable nginx
+```
+
+### Langkah 3: Test Nginx
+
+Dalam Session Manager terminal:
+
+```bash
 curl localhost
 ```
 
-Tekan butang **q** untuk keluar dari status.
+Anda akan nampak HTML output dari nginx.
 
-### Langkah 3: Cuba Connect ke Private Instance (Akan Gagal)
+### Langkah 4: Test Access dari Browser
+
+1. Pergi ke EC2 console
+2. Pilih instance `public-server`
+3. Copy **Public IPv4 address**
+4. Buka browser dan masukkan IP tersebut (contoh: `http://54.123.45.67`)
+5. Anda akan nampak **"Welcome to nginx"** page
+
+✅ Berjaya install dan access nginx tanpa SSH!
+
+### Langkah 5: Cuba Connect ke Private Instance (Akan Gagal)
 
 1. Pergi ke EC2 console
 2. Pilih instance `private-server`
@@ -38,7 +55,7 @@ Tekan butang **q** untuk keluar dari status.
 > - Tiada NAT Gateway
 > - Tiada VPC Endpoints untuk SSM
 
-### Langkah 4: Semak Status di Systems Manager
+### Langkah 6: Semak Status di Systems Manager
 
 1. Pergi ke AWS Systems Manager console
 2. Click "Fleet Manager" di sidebar
