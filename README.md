@@ -42,7 +42,7 @@
 
 ## 🎯 SESI 8: AWS Security
 
-[LAB15](/labs/lab15.md): Security Groups
+[LAB15](/labs/lab15.md): IAM Role dan Security Groups
 
-[LAB16](/labs/lab16.md): IAM Role untuk SSM Access
+[LAB16](/labs/lab16.md): SSM Session Manager
 

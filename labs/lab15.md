@@ -1,6 +1,19 @@
-## LAB 15: Security Groups
+## LAB 15: IAM Role dan Security Groups
 
-### Langkah 1: Buat Security Group untuk EC2
+### Langkah 1: Buat IAM Role untuk SSM
+
+1. Pergi ke IAM console
+2. Click "Roles" di sidebar
+3. Click "Create role"
+4. Pilih trusted entity type: **AWS service**
+5. Pilih use case: **EC2**
+6. Click "Next"
+7. Dalam "Permissions policies", cari dan tick: `AmazonSSMManagedInstanceCore`
+8. Click "Next"
+9. Isikan Role name: `EC2-SSM-Role`
+10. Click "Create role"
+
+### Langkah 2: Buat Security Group untuk EC2
 
 1. Pergi ke "Security Groups" dalam dashboard VPC
 2. Click "Create security group"
@@ -17,7 +30,7 @@
    - Destination: 0.0.0.0/0
 6. Click "Create security group"
 
-### Langkah 2: Launch EC2 Instance di Public Subnet
+### Langkah 3: Launch EC2 Instance di Public Subnet
 
 1. Pergi ke EC2 console
 2. Click "Launch instance"
@@ -32,9 +45,11 @@
    - Subnet: `public-subnet`
    - Auto-assign public IP: Enable
    - Security group: Pilih existing `web-sg`
-5. Click "Launch instance"
+5. Dalam "Advanced details":
+   - IAM instance profile: `EC2-SSM-Role`
+6. Click "Launch instance"
 
-### Langkah 3: Launch EC2 Instance di Private Subnet
+### Langkah 4: Launch EC2 Instance di Private Subnet
 
 1. Click "Launch instance" sekali lagi
 2. Isikan maklumat berikut:
@@ -48,39 +63,35 @@
    - Subnet: `private-subnet`
    - Auto-assign public IP: Disable
    - Security group: Pilih existing `web-sg`
-4. Click "Launch instance"
+4. Dalam "Advanced details":
+   - IAM instance profile: `EC2-SSM-Role`
+5. Click "Launch instance"
 
-### Langkah 4: Tunggu Instance Running
+### Langkah 5: Tunggu Instance Running
 
 1. Pergi ke EC2 console
 2. Tunggu hingga kedua-dua instance menunjukkan:
    - Instance state: **Running**
    - Status check: **2/2 checks passed**
 
-### Langkah 5: Install Nginx di Public Instance
+### Langkah 6: Install Nginx di Public Instance
 
-1. Pilih instance `public-web-server`
+1. Pilih instance `public-server`
 2. Click "Connect"
 3. Pilih tab "EC2 Instance Connect"
 4. Click "Connect"
 5. Dalam terminal, jalankan commands:
 
 ```bash
-# Update system
-sudo dnf update -y
-
-# Install nginx
 sudo dnf install nginx -y
-
-# Start nginx
 sudo systemctl start nginx
 sudo systemctl enable nginx
 ```
 
-### Langkah 6: Test Access ke Public Instance
+### Langkah 7: Test Access ke Public Instance
 
 1. Pergi ke EC2 console
-2. Pilih instance `public-web-server`
+2. Pilih instance `public-server`
 3. Copy **Public IPv4 address**
 4. Buka browser dan masukkan IP tersebut (contoh: `http://54.123.45.67`)
 5. Anda akan nampak **"Welcome to nginx"** page
