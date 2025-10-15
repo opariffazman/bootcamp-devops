@@ -37,3 +37,21 @@
 [LAB13](/labs/lab13.md): Route Table
 
 [LAB14](/labs/lab14.md): Subnets
+
+---
+
+## 🎯 SESI 8: AWS Security
+
+[LAB15](/labs/lab15.md): IAM Role dan Security Groups
+
+[LAB16](/labs/lab16.md): SSM Session Manager
+
+[LAB17](/labs/lab17.md): Network Communication
+
+### 🎯 SESI 7 + 8: AWS Networking & Security (Optional)
+
+> **Nota**: Lab ini tidak wajib untuk pemula. Boleh cuba jika berminat.
+
+[LAB18](/labs/lab18.md): NAT Gateway (💰 Ada kos - pastikan cleanup!)
+
+[LAB19](/labs/lab19.md): VPC Endpoints (Lebih murah untuk AWS services)
