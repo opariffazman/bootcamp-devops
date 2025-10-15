@@ -55,13 +55,6 @@ Anda akan nampak HTML output dari nginx.
 > - Tiada NAT Gateway
 > - Tiada VPC Endpoints untuk SSM
 
-### Langkah 6: Semak Status di Systems Manager
-
-1. Pergi ke AWS Systems Manager console
-2. Click "Fleet Manager" di sidebar
-3. Anda akan nampak hanya `public-server` dalam senarai managed instances
-4. `private-server` tidak akan muncul
-
 **Kelebihan SSM:**
 
 - Tidak perlu SSH key
