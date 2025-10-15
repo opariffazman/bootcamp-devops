@@ -46,3 +46,5 @@
 
 [LAB16](/labs/lab16.md): SSM Session Manager
 
+[LAB17](/labs/lab17.md): Network Communication
+
