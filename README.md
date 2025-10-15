@@ -37,3 +37,12 @@
 [LAB13](/labs/lab13.md): Route Table
 
 [LAB14](/labs/lab14.md): Subnets
+
+---
+
+## 🎯 SESI 8: AWS Security
+
+[LAB15](/labs/lab15.md): Security Groups
+
+[LAB16](/labs/lab16.md): IAM Role untuk SSM Access
+
