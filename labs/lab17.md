@@ -41,9 +41,3 @@ Output yang diharapkan:
 ```
 
 ✅ Public server boleh berkomunikasi dengan private server!
-
-### Langkah 4: Dapatkan Private IP dari Public Server
-
-1. Pergi ke EC2 console
-2. Pilih instance `public-server`
-3. Copy **Private IPv4 address** (contoh: `10.0.2.45`)
