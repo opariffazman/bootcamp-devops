@@ -10,9 +10,10 @@
 2 jam
 
 ### Prerequisites
-- EC2 instance running di public subnet dengan Public IP
+- EC2 instance Ubuntu running di public subnet dengan Public IP
 - Access ke terminal (SSH atau Session Manager)
 - Port 80 dibuka dalam Security Group (HTTP)
+- Nginx installed (rujuk [Lab 8](lab8.md) jika belum install)
 
 ---
 
@@ -37,8 +38,7 @@ Linux menggunakan struktur tree yang bermula dari root (`/`):
 - `/etc/nginx/` - nginx configuration files
 - `/var/log/` - application logs
 - `/var/log/nginx/` - nginx access & error logs
-- `/usr/share/nginx/html/` - default nginx web root
-- `/var/www/html/` - common web root directory
+- `/var/www/html/` - default nginx web root (Ubuntu)
 - `/home/` - user working directories
 - `/tmp/` - temporary scripts dan files
 
@@ -52,7 +52,7 @@ ls -ld /etc/nginx
 ls -l /etc/nginx/
 
 # Check nginx web root
-ls -la /usr/share/nginx/html/
+ls -la /var/www/html/
 
 # Check nginx logs directory
 ls -lh /var/log/nginx/
@@ -139,7 +139,7 @@ ls -l /etc/nginx/sites-available/
 ls -lh /var/log/nginx/
 
 # List nginx html directory
-ls -la /usr/share/nginx/html/
+ls -la /var/www/html/
 ```
 
 ### Langkah 7: Sort by Time
@@ -237,7 +237,7 @@ pwd
 
 ```bash
 # Dari mana-mana location, pergi ke nginx html directory
-cd /usr/share/nginx/html
+cd /var/www/html
 pwd
 
 # List files dalam html directory
@@ -247,19 +247,19 @@ ls -la
 **Relative path - relative dari current location:**
 
 ```bash
-# Dari /usr/share/nginx/html
+# Dari /var/www/html
 cd /etc/nginx
 
-# Pergi ke conf.d menggunakan relative path
-cd conf.d
+# Pergi ke sites-available menggunakan relative path
+cd sites-available
 pwd
 
 # Balik ke parent directory
 cd ..
 pwd
 
-# Pergi ke sites-available menggunakan relative path
-cd sites-available
+# Pergi ke sites-enabled menggunakan relative path
+cd sites-enabled
 pwd
 ```
 
@@ -457,17 +457,10 @@ ls app-2024-0[123].log
 
 ### Langkah 1: Install Nginx
 
+**Nota:** Jika anda belum install nginx, sila rujuk [Lab 8: Install Nginx](lab8.md) untuk langkah lengkap.
+
 ```bash
-# Install nginx
-sudo yum install -y nginx
-
-# Start nginx service
-sudo systemctl start nginx
-
-# Enable nginx to start on boot
-sudo systemctl enable nginx
-
-# Check nginx status
+# Verify nginx is installed and running
 sudo systemctl status nginx
 ```
 
@@ -475,7 +468,7 @@ sudo systemctl status nginx
 
 ```bash
 # Navigate ke nginx web root
-cd /usr/share/nginx/html
+cd /var/www/html
 
 # List files
 ls -la
