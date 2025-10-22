@@ -265,68 +265,72 @@ pwd
 
 ---
 
-## Bahagian 5: Command mkdir (25 minit)
+## Bahagian 5: Command mkdir (20 minit)
 
-### Langkah 1: Setup Web Application Directory
-
-```bash
-# Pergi ke nginx html directory
-cd /usr/share/nginx/html
-
-# Buat directory untuk static assets
-sudo mkdir css js images
-
-# Verify
-ls -l
-```
-
-### Langkah 2: Buat Project Structure
+### Langkah 1: Buat Single Directory
 
 ```bash
 # Pergi ke home
 cd ~
 
-# Buat DevOps project structure
-mkdir -p webapp/{deployment,monitoring,backup}
+# Buat directory
+mkdir myproject
 
 # Verify
-ls -l webapp
+ls -l
 ```
 
-### Langkah 3: Buat Nested Directories untuk Assets
+### Langkah 2: Buat Multiple Directories
+
+```bash
+# Buat multiple directories sekaligus
+mkdir logs configs scripts
+
+# Verify
+ls -l
+```
+
+### Langkah 3: Buat Nested Directories
+
+**Cara yang GAGAL:**
+
+```bash
+# Cuba buat nested directory tanpa -p
+mkdir projects/web/public
+```
+
+**Cara yang BETUL:**
 
 ```bash
 # Guna -p untuk auto-create parent directories
-cd ~/webapp
-mkdir -p assets/{images/{products,banners},css,js}
+mkdir -p projects/web/public
 
 # Verify structure
-ls -R assets
+ls -R projects
 ```
 
-### Langkah 4: Setup Nginx Site Structure
+### Langkah 4: Buat Multiple Nested Directories Sekaligus
 
 ```bash
-# Buat custom site structure
+# Buat structure dengan satu command
 cd ~
-mkdir -p sites/myapp/{public,logs,ssl,backups}
+mkdir -p mysite/{html,logs,backups}
 
 # Verify
-ls -l sites/myapp
+ls -l mysite
 ```
 
 ### Langkah 5: Buat Directory Dengan Specific Permissions
 
 ```bash
-# Buat directory untuk web content (public read)
-cd ~/sites/myapp
-mkdir -m 755 public_html
+# Buat directory dengan permissions 755
+mkdir -m 755 public_folder
 
-# Buat directory untuk private data (owner only)
-mkdir -m 700 private_data
+# Buat directory dengan permissions 700 (private)
+mkdir -m 700 private_folder
 
 # Verify permissions
-ls -ld public_html private_data
+ls -ld public_folder private_folder
 ```
 
 ---
