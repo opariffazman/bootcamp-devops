@@ -1,15 +1,18 @@
 ## LAB 20: Linux Command Asas - Navigasi & Pengurusan Fail (Sesi 1)
 
 ### Objektif
+
 - Memahami struktur direktori Linux
 - Menguasai command navigasi asas (pwd, ls, cd)
 - Membuat dan mengurus direktori (mkdir, rmdir)
 - Memahami konsep path (absolute vs relative)
 
 ### Durasi
+
 2 jam 5 minit
 
 ### Prerequisites
+
 - EC2 instance Ubuntu running di public subnet dengan Public IP
 - IAM Instance Profile dengan SSM permissions (dari lab sebelumnya)
 - Access ke terminal menggunakan Session Manager (SSM)
@@ -49,7 +52,47 @@ Sekarang anda berada dalam bash shell dan ready untuk start lab.
 
 ---
 
-## Bahagian 1: Struktur Direktori Linux (15 minit)
+## Bahagian 1: Command pwd (10 minit)
+
+### Langkah 1: Semak Lokasi Semasa
+
+Selepas masuk bash shell, check lokasi semasa anda:
+
+```bash
+pwd
+```
+
+Anda akan berada di direktori berbeza `/var/snap/amazon-ssm-agent/xxx` kerana SSM connect anda ke directory ini by default.
+
+### Langkah 2: Navigate ke Home Directory
+
+```bash
+# Pergi ke home directory
+cd ~
+pwd
+```
+
+Sekarang anda berada di home directory (`/home/ssm-user).
+
+### Langkah 3: Praktis di Pelbagai Lokasi
+
+```bash
+# Pergi ke root directory
+cd /
+pwd
+
+# Pergi ke /var/log
+cd /var/log
+pwd
+
+# Balik ke home
+cd ~
+pwd
+```
+
+---
+
+## Bahagian 2: Struktur Direktori Linux (15 minit)
 
 ### Pengenalan Filesystem Hierarchy
 
@@ -66,6 +109,7 @@ Linux menggunakan struktur tree yang bermula dari root (`/`):
 ```
 
 **Penting untuk DevOps:**
+
 - `/etc/` - config files untuk services (nginx, docker, etc.)
 - `/etc/nginx/` - nginx configuration files
 - `/var/log/` - application logs
@@ -88,32 +132,6 @@ ls -la /var/www/html/
 
 # Check nginx logs directory
 ls -lh /var/log/nginx/
-```
-
----
-
-## Bahagian 2: Command pwd (10 minit)
-
-### Langkah 1: Semak Lokasi Semasa
-
-```bash
-pwd
-```
-
-### Langkah 2: Praktis di Pelbagai Lokasi
-
-```bash
-# Pergi ke root directory
-cd /
-pwd
-
-# Pergi ke /var/log
-cd /var/log
-pwd
-
-# Balik ke home
-cd ~
-pwd
 ```
 
 ---
@@ -833,6 +851,7 @@ Dalam lab ini anda telah belajar:
 Pastikan anda boleh:
 
 **Basic Navigation:**
+
 - [ ] Tahu current position dengan `pwd`
 - [ ] List files dengan `ls -l`, `ls -a`, `ls -lah`
 - [ ] Navigate menggunakan absolute path
@@ -844,12 +863,14 @@ Pastikan anda boleh:
 - [ ] Guna wildcards
 
 **Directory Management:**
+
 - [ ] Buat directory dengan `mkdir`
 - [ ] Buat nested directories dengan `mkdir -p`
 - [ ] Remove empty directory dengan `rmdir`
 - [ ] Setup complex directory structure dalam satu command
 
 **DevOps Practical:**
+
 - [ ] Navigate ke nginx config directory
 - [ ] Navigate ke nginx web root
 - [ ] Navigate ke nginx logs
