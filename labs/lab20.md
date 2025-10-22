@@ -343,37 +343,36 @@ ls -l
 
 ```bash
 # Cuba buat nested directory tanpa -p
-mkdir projects/web/public
+mkdir project1/web/public
 ```
 
 **Cara yang BETUL:**
 
 ```bash
 # Guna -p untuk auto-create parent directories
-mkdir -p projects/web/public
+mkdir -p project1/web/public
 
 # Verify structure
-ls -R projects
+ls -R project1
 ```
 
 ### Langkah 4: Buat Multiple Nested Directories Sekaligus
 
 ```bash
 # Buat structure dengan satu command
-cd ~
-mkdir -p mysite/{html,logs,backups}
+mkdir -p project2/{html,logs,backups}
 
 # Verify
-ls -l mysite
+ls -l project2
 ```
 
 ### Langkah 5: Buat Directory Dengan Specific Permissions
 
 ```bash
-# Buat directory dengan permissions 755
+# Buat directory dengan permissions 755 (public read)
 mkdir -m 755 public_folder
 
-# Buat directory dengan permissions 700 (private)
+# Buat directory dengan permissions 700 (owner only)
 mkdir -m 700 private_folder
 
 # Verify permissions
@@ -427,7 +426,68 @@ ls cleanup
 
 ---
 
-## Bahagian 7: Tips & Shortcuts untuk DevOps
+## Bahagian 7: Pengurusan Pengguna & Permissions Asas
+
+### Langkah 1: Check Current User
+
+```bash
+# Semak siapa user semasa
+whoami
+```
+
+### Langkah 2: Understanding File Permissions
+
+```bash
+# Lihat file dengan permissions
+ls -l
+```
+
+**Format permissions: `-rwxr-xr-x`**
+
+```
+-rwxr-xr-x
+│││││││││
+│└┬┘└┬┘└┬┘
+│ │  │  └─── Others (all users)
+│ │  └────── Group
+│ └───────── Owner (user)
+└─────────── File type (- = file, d = directory)
+```
+
+**Permission meanings:**
+
+- `r` (read) = boleh baca/view file
+- `w` (write) = boleh modify/delete file
+- `x` (execute) = boleh run file (untuk scripts)
+
+**Contoh:**
+
+```
+-rw-r--r--  = Owner: read+write, Group: read, Others: read
+-rwxr-xr-x  = Owner: read+write+execute, Group: read+execute, Others: read+execute
+drwxr-xr-x  = Directory dengan same permissions
+```
+
+### Langkah 3: Practical Example
+
+```bash
+# Buat test file
+cd ~
+touch testfile.txt
+
+# Lihat permissions
+ls -l testfile.txt
+
+# Buat directory
+mkdir testdir
+
+# Lihat permissions
+ls -ld testdir
+```
+
+---
+
+## Bahagian 8: Tips & Shortcuts
 
 ### Langkah 1: Tab Completion
 
@@ -500,18 +560,9 @@ ls app-2024-0[123].log
 
 ---
 
-## Bahagian 8: Practical DevOps - Working with Nginx
+## Bahagian 9: Practikal
 
-### Langkah 1: Install Nginx
-
-**Nota:** Jika anda belum install nginx, sila rujuk [Lab 8: Install Nginx](lab8.md) untuk langkah lengkap.
-
-```bash
-# Verify nginx is installed and running
-sudo systemctl status nginx
-```
-
-### Langkah 2: Explore Nginx Default Setup
+### Langkah 1: Explore Nginx Default Setup
 
 ```bash
 # Navigate ke nginx web root
@@ -521,14 +572,14 @@ cd /var/www/html
 ls -la
 ```
 
-### Langkah 3: View Default index.html
+### Langkah 2: View Default index.html
 
 ```bash
 # View current index.html
 cat index.html
 ```
 
-### Langkah 4: Create Custom HTML Directory Structure
+### Langkah 3: Create Custom HTML Directory Structure
 
 ```bash
 # Buat directory untuk custom sites
@@ -541,7 +592,7 @@ sudo mkdir -p /var/www/site1/html/{css,js,images}
 ls -R /var/www/
 ```
 
-### Langkah 5: Create Custom index.html
+### Langkah 4: Create Custom index.html
 
 ```bash
 # Navigate ke site1
@@ -626,184 +677,6 @@ curl http://$(hostname -I | awk '{print $1}')
 
 # Or test in browser using Public IP
 echo "Test in browser: http://$(hostname -I | awk '{print $1}')"
-```
-
-### Langkah 9: Make Changes and See Instant Updates
-
-```bash
-# Navigate ke html directory
-cd /var/www/site1/html
-
-# Update version to 2.0
-sudo sed -i 's/Version 1.0/Version 2.0/g' index.html
-sudo sed -i 's/#28a745/#dc3545/g' index.html
-
-# Verify changes
-cat index.html | grep -i version
-
-# Test updated website
-curl http://localhost | grep -i version
-
-# Refresh browser to see changes
-echo "Refresh browser: http://$(hostname -I | awk '{print $1}')"
-```
-
-### Langkah 10: Navigate Between Configurations and Logs
-
-```bash
-# Check nginx config
-cd /etc/nginx
-pwd
-ls -l
-
-# Check nginx logs
-cd /var/log/nginx
-pwd
-ls -lh
-
-# View access log
-sudo tail -20 access.log
-
-# Quick toggle back to web root
-cd /var/www/site1/html
-pwd
-
-# Quick toggle to config
-cd /etc/nginx
-pwd
-
-# Use cd - to toggle between directories
-cd -
-pwd
-
-# Toggle back
-cd -
-pwd
-```
-
----
-
-## Bahagian 9: Hands-On Exercise - Navigation Practice
-
-### Exercise 1: Directory Navigation Challenge
-
-```bash
-# 1. Start dari home
-cd ~
-pwd
-
-# 2. Pergi ke /var/log
-cd /var/log
-pwd
-
-# 3. List files
-ls -l
-
-# 4. Pergi ke /etc
-cd /etc
-pwd
-
-# 5. List files yang start dengan 'host'
-ls host*
-
-# 6. Pergi ke parent directory (root)
-cd ..
-pwd
-
-# 7. Balik ke home
-cd ~
-pwd
-
-# 8. Pergi ke /var/log/nginx
-cd /var/log/nginx
-pwd
-
-# 9. Pergi ke /etc/nginx
-cd /etc/nginx
-pwd
-
-# 10. Quick toggle balik ke previous directory
-cd -
-pwd
-
-# 11. Toggle again
-cd -
-pwd
-```
-
-### Exercise 2: Directory Creation Practice
-
-```bash
-# 1. Pergi ke home
-cd ~
-pwd
-
-# 2. Buat project structure
-mkdir -p practice/{web,database,cache}
-
-# 3. Verify structure
-ls -R practice
-
-# 4. Navigate ke web directory
-cd practice/web
-pwd
-
-# 5. Buat subdirectories
-mkdir -p html logs
-
-# 6. Verify
-ls -l
-
-# 7. Navigate ke parent (practice)
-cd ..
-pwd
-
-# 8. Navigate ke database directory
-cd database
-pwd
-
-# 9. Balik ke home
-cd ~
-pwd
-```
-
-### Exercise 3: Combining Commands
-
-```bash
-# 1. Create test environment
-cd ~
-mkdir -p testenv/{app1,app2,app3}
-
-# 2. Navigate ke app1
-cd testenv/app1
-pwd
-
-# 3. Create files
-touch index.html config.conf
-
-# 4. List files
-ls -l
-
-# 5. Navigate ke app2 using relative path
-cd ../app2
-pwd
-
-# 6. Create files
-touch data.log error.log
-
-# 7. List files
-ls -l
-
-# 8. Navigate ke app3
-cd ../app3
-pwd
-
-# 9. Use wildcards to list all logs in testenv
-ls ../*/*.log
-
-# 10. Cleanup - remove empty testenv
-cd ~
-rm -r testenv
 ```
 
 ---
