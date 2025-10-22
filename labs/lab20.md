@@ -12,7 +12,7 @@
 ### Prerequisites
 - EC2 instance running di public subnet dengan Public IP
 - Access ke terminal (SSH atau Session Manager)
-- Port 8080, 8081, 8082 dibuka dalam Security Group
+- Port 80 dibuka dalam Security Group (HTTP)
 
 ---
 
@@ -453,7 +453,7 @@ ls app-2024-0[123].log
 
 ---
 
-## Bahagian 8: Practical DevOps - Working with Nginx (25 minit)
+## Bahagian 8: Practical DevOps - Working with Nginx (30 minit)
 
 ### Langkah 1: Install Nginx
 
@@ -552,26 +552,14 @@ cat index.html
 ### Langkah 6: Update Nginx Configuration
 
 ```bash
-# Navigate ke nginx conf.d
-cd /etc/nginx/conf.d
+# Backup default config first
+sudo cp /etc/nginx/nginx.conf /etc/nginx/nginx.conf.backup
 
-# Create new site configuration
-sudo tee site1.conf > /dev/null << 'EOF'
-server {
-    listen 8080;
-    server_name _;
-    
-    root /var/www/site1/html;
-    index index.html;
-    
-    location / {
-        try_files $uri $uri/ =404;
-    }
-}
-EOF
+# Update nginx to point to our custom site
+sudo sed -i 's|root.*html;|root /var/www/site1/html;|' /etc/nginx/nginx.conf
 
-# Verify config file
-cat site1.conf
+# Verify changes
+grep "root" /etc/nginx/nginx.conf
 ```
 
 ### Langkah 7: Test and Reload Nginx
@@ -591,10 +579,13 @@ sudo systemctl status nginx
 
 ```bash
 # Test website in terminal
-curl http://localhost:8080
+curl http://localhost
 
 # Get server IP and test
-curl http://$(hostname -I | awk '{print $1}'):8080
+curl http://$(hostname -I | awk '{print $1}')
+
+# Or test in browser using Public IP
+echo "Test in browser: http://$(hostname -I | awk '{print $1}')"
 ```
 
 ### Langkah 9: Make Changes and See Instant Updates
@@ -611,14 +602,17 @@ sudo sed -i 's/#28a745/#dc3545/g' index.html
 cat index.html | grep -i version
 
 # Test updated website
-curl http://localhost:8080 | grep -i version
+curl http://localhost | grep -i version
+
+# Refresh browser to see changes
+echo "Refresh browser: http://$(hostname -I | awk '{print $1}')"
 ```
 
 ### Langkah 10: Navigate Between Configurations and Logs
 
 ```bash
 # Check nginx config
-cd /etc/nginx/conf.d
+cd /etc/nginx
 pwd
 ls -l
 
@@ -635,7 +629,7 @@ cd /var/www/site1/html
 pwd
 
 # Quick toggle to config
-cd /etc/nginx/conf.d
+cd /etc/nginx
 pwd
 
 # Use cd - to toggle between directories
@@ -649,259 +643,127 @@ pwd
 
 ---
 
-## Bahagian 9: Hands-On Final Exercise - Multiple Sites (30 minit)
+## Bahagian 9: Hands-On Exercise - Navigation Practice (20 minit)
 
-### Exercise 1: Deploy Multiple Websites
-
-```bash
-# 1. Create directories untuk 2 sites
-sudo mkdir -p /var/www/{blog,shop}/html
-
-# 2. Create blog site (Version 1.0)
-cd /var/www/blog/html
-sudo tee index.html > /dev/null << 'EOF'
-<!DOCTYPE html>
-<html>
-<head>
-    <title>My Blog - v1.0</title>
-    <style>
-        body { 
-            font-family: Arial; 
-            margin: 40px; 
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-        .container { 
-            background: rgba(255,255,255,0.1); 
-            padding: 30px; 
-            border-radius: 10px; 
-        }
-        h1 { color: #fff; }
-        .version { 
-            background: #28a745; 
-            padding: 5px 10px; 
-            border-radius: 5px;
-            font-weight: bold;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>My Awesome Blog</h1>
-        <p>Version: <span class="version">1.0</span></p>
-        <p>Status: Production</p>
-        <p>Type: Blog Platform</p>
-    </div>
-</body>
-</html>
-EOF
-
-# 3. Create shop site (Version 1.0)
-cd /var/www/shop/html
-sudo tee index.html > /dev/null << 'EOF'
-<!DOCTYPE html>
-<html>
-<head>
-    <title>My Shop - v1.0</title>
-    <style>
-        body { 
-            font-family: Arial; 
-            margin: 40px; 
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
-        }
-        .container { 
-            background: rgba(255,255,255,0.1); 
-            padding: 30px; 
-            border-radius: 10px; 
-        }
-        h1 { color: #fff; }
-        .version { 
-            background: #007bff; 
-            padding: 5px 10px; 
-            border-radius: 5px;
-            font-weight: bold;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>My Online Shop</h1>
-        <p>Version: <span class="version">1.0</span></p>
-        <p>Status: Production</p>
-        <p>Type: E-commerce Platform</p>
-    </div>
-</body>
-</html>
-EOF
-
-# 4. Create nginx configs untuk both sites
-cd /etc/nginx/conf.d
-
-sudo tee blog.conf > /dev/null << 'EOF'
-server {
-    listen 8081;
-    server_name _;
-    root /var/www/blog/html;
-    index index.html;
-    
-    location / {
-        try_files $uri $uri/ =404;
-    }
-}
-EOF
-
-sudo tee shop.conf > /dev/null << 'EOF'
-server {
-    listen 8082;
-    server_name _;
-    root /var/www/shop/html;
-    index index.html;
-    
-    location / {
-        try_files $uri $uri/ =404;
-    }
-}
-EOF
-
-# 5. Test and reload nginx
-sudo nginx -t
-sudo systemctl reload nginx
-
-# 6. Test both sites
-echo "Testing Blog Site:"
-curl http://localhost:8081 | grep -i version
-
-echo -e "\nTesting Shop Site:"
-curl http://localhost:8082 | grep -i version
-```
-
-### Exercise 2: Update and Compare Versions
-
-```bash
-# 1. Navigate ke blog site
-cd /var/www/blog/html
-pwd
-
-# 2. Update blog to version 2.0
-sudo sed -i 's/v1.0/v2.0/g' index.html
-sudo sed -i 's/Version: <span class="version">1.0/Version: <span class="version">2.0/g' index.html
-sudo sed -i 's/#28a745/#ffc107/g' index.html
-
-# 3. Test blog update
-curl http://localhost:8081 | grep -i version
-
-# 4. Navigate ke shop site
-cd /var/www/shop/html
-pwd
-
-# 5. Update shop to version 2.5
-sudo sed -i 's/v1.0/v2.5/g' index.html
-sudo sed -i 's/Version: <span class="version">1.0/Version: <span class="version">2.5/g' index.html
-sudo sed -i 's/#007bff/#dc3545/g' index.html
-
-# 6. Test shop update
-curl http://localhost:8082 | grep -i version
-
-# 7. Navigate between sites using cd -
-cd /var/www/blog/html
-pwd
-
-cd /var/www/shop/html
-pwd
-
-cd -
-pwd
-
-cd -
-pwd
-```
-
-### Exercise 3: Navigation Challenge
+### Exercise 1: Directory Navigation Challenge
 
 ```bash
 # 1. Start dari home
 cd ~
 pwd
 
-# 2. Pergi ke blog html
-cd /var/www/blog/html
+# 2. Pergi ke /var/log
+cd /var/log
 pwd
 
 # 3. List files
-ls -la
+ls -l
 
-# 4. Pergi ke nginx config
-cd /etc/nginx/conf.d
+# 4. Pergi ke /etc
+cd /etc
 pwd
 
-# 5. List blog config
-cat blog.conf
+# 5. List files yang start dengan 'host'
+ls host*
 
-# 6. Quick toggle balik ke blog html
-cd -
+# 6. Pergi ke parent directory (root)
+cd ..
 pwd
 
-# 7. Pergi ke shop html (using relative path from blog)
-cd ../../shop/html
+# 7. Balik ke home
+cd ~
 pwd
 
-# 8. List files
-ls -la
-
-# 9. Pergi ke nginx logs
+# 8. Pergi ke /var/log/nginx
 cd /var/log/nginx
 pwd
 
-# 10. View latest access log entries
-sudo tail -20 access.log | grep -E '8081|8082'
+# 9. Pergi ke /etc/nginx
+cd /etc/nginx
+pwd
 
-# 11. Toggle between logs and shop html
+# 10. Quick toggle balik ke previous directory
 cd -
 pwd
 
+# 11. Toggle again
 cd -
 pwd
 ```
 
-### Exercise 4: Directory Comparison
+### Exercise 2: Directory Creation Practice
 
 ```bash
-# Compare both sites side by side
-echo "=== BLOG SITE ==="
-ls -lh /var/www/blog/html/
-echo ""
+# 1. Pergi ke home
+cd ~
+pwd
 
-echo "=== SHOP SITE ==="
-ls -lh /var/www/shop/html/
-echo ""
+# 2. Buat project structure
+mkdir -p practice/{web,database,cache}
 
-echo "=== NGINX CONFIGS ==="
-ls -l /etc/nginx/conf.d/*.conf
-echo ""
+# 3. Verify structure
+ls -R practice
 
-echo "=== TEST BOTH SITES ==="
-echo "Blog Version:"
-curl -s http://localhost:8081 | grep -i "version"
-echo ""
-echo "Shop Version:"
-curl -s http://localhost:8082 | grep -i "version"
+# 4. Navigate ke web directory
+cd practice/web
+pwd
+
+# 5. Buat subdirectories
+mkdir -p html logs
+
+# 6. Verify
+ls -l
+
+# 7. Navigate ke parent (practice)
+cd ..
+pwd
+
+# 8. Navigate ke database directory
+cd database
+pwd
+
+# 9. Balik ke home
+cd ~
+pwd
 ```
 
----
-
-## Bahagian 10: Cleanup (Optional)
+### Exercise 3: Combining Commands
 
 ```bash
-# Stop sites (optional)
-sudo rm /etc/nginx/conf.d/blog.conf
-sudo rm /etc/nginx/conf.d/shop.conf
-sudo nginx -t
-sudo systemctl reload nginx
+# 1. Create test environment
+cd ~
+mkdir -p testenv/{app1,app2,app3}
 
-# Remove site directories (optional)
-sudo rm -rf /var/www/blog
-sudo rm -rf /var/www/shop
+# 2. Navigate ke app1
+cd testenv/app1
+pwd
+
+# 3. Create files
+touch index.html config.conf
+
+# 4. List files
+ls -l
+
+# 5. Navigate ke app2 using relative path
+cd ../app2
+pwd
+
+# 6. Create files
+touch data.log error.log
+
+# 7. List files
+ls -l
+
+# 8. Navigate ke app3
+cd ../app3
+pwd
+
+# 9. Use wildcards to list all logs in testenv
+ls ../*/*.log
+
+# 10. Cleanup - remove empty testenv
+cd ~
+rm -r testenv
 ```
 
 ---
