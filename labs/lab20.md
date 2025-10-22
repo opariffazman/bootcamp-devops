@@ -643,6 +643,7 @@ cat index.html
 ### Langkah 5: Create Nginx Site Configuration
 
 **Nota:** Ubuntu nginx guna konsep `sites-available` dan `sites-enabled`:
+
 - `sites-available` - semua config files (active atau tidak)
 - `sites-enabled` - symbolic links ke configs yang active
 
@@ -701,36 +702,12 @@ sudo systemctl status nginx
 
 ```bash
 # Test website in terminal
-curl http://localhost
-
-# Get server IP and test
-curl http://$(hostname -I | awk '{print $1}')
-
-# Or test in browser using Public IP
-echo "Test in browser: http://$(hostname -I | awk '{print $1}')"
+curl localhost
 ```
 
 ---
 
-## Kesimpulan
-
-Dalam lab ini anda telah belajar:
-
-- Struktur direktori Linux untuk DevOps
-- Navigate nginx directories (/etc/nginx, /var/log/nginx, /usr/share/nginx/html)
-- Command pwd untuk check current location
-- Command ls dengan pelbagai options untuk monitoring
-- Command cd untuk navigation efficiency
-- Command mkdir untuk buat web directories
-- Command rmdir untuk remove empty directories
-- Absolute vs relative paths dalam web deployment
-- Tab completion & shortcuts untuk productivity
-- Wildcards untuk pattern matching logs dan configs
-- Deploy real nginx websites dengan HTML
-- Update websites dan verify changes instantly
-- Manage multiple sites dengan different versions
-
-### Command Summary
+## Command Summary
 
 | Command | Fungsi | Contoh DevOps |
 |---------|--------|--------|
@@ -744,40 +721,3 @@ Dalam lab ini anda telah belajar:
 | `mkdir` | Make directory | `sudo mkdir -p /var/www/mysite/html` |
 | `mkdir -p` | Make nested directories | `mkdir -p site/{html,logs,ssl}` |
 | `rmdir` | Remove empty directory | `rmdir old_site` |
-
----
-
-## Lab 20 Checklist
-
-Pastikan anda boleh:
-
-**Basic Navigation:**
-
-- [ ] Tahu current position dengan `pwd`
-- [ ] List files dengan `ls -l`, `ls -a`, `ls -lah`
-- [ ] Navigate menggunakan absolute path
-- [ ] Navigate menggunakan relative path
-- [ ] Pergi ke home dengan `cd ~`
-- [ ] Pergi ke parent dengan `cd ..`
-- [ ] Toggle between directories dengan `cd -`
-- [ ] Guna Tab completion
-- [ ] Guna wildcards
-
-**Directory Management:**
-
-- [ ] Buat directory dengan `mkdir`
-- [ ] Buat nested directories dengan `mkdir -p`
-- [ ] Remove empty directory dengan `rmdir`
-- [ ] Setup complex directory structure dalam satu command
-
-**DevOps Practical:**
-
-- [ ] Navigate ke nginx config directory
-- [ ] Navigate ke nginx web root
-- [ ] Navigate ke nginx logs
-- [ ] Install dan configure nginx
-- [ ] Create custom HTML files
-- [ ] Deploy website dan verify dengan curl
-- [ ] Update website version dan see changes
-- [ ] Manage multiple sites dengan different ports
-- [ ] Toggle efficiently between config, web root, dan logs
