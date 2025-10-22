@@ -709,15 +709,54 @@ curl localhost
 
 ## Command Summary
 
-| Command | Fungsi | Contoh DevOps |
+### Navigation Commands
+
+| Command | Fungsi | Contoh |
 |---------|--------|--------|
 | `pwd` | Print working directory | `pwd` |
-| `ls` | List files | `ls -lh /var/log/nginx/` |
-| `ls -lt` | Sort by time | `ls -lt /var/log/nginx/` |
-| `cd` | Change directory | `cd /etc/nginx/conf.d` |
+| `cd` | Change directory | `cd /etc/nginx` |
 | `cd ~` | Go to home | `cd ~` |
 | `cd ..` | Go to parent | `cd ..` |
 | `cd -` | Go to previous | `cd -` |
-| `mkdir` | Make directory | `sudo mkdir -p /var/www/mysite/html` |
-| `mkdir -p` | Make nested directories | `mkdir -p site/{html,logs,ssl}` |
-| `rmdir` | Remove empty directory | `rmdir old_site` |
+
+### File & Directory Listing
+
+| Command | Fungsi | Contoh |
+|---------|--------|--------|
+| `ls` | List files | `ls` |
+| `ls -l` | List with details | `ls -l` |
+| `ls -a` | List with hidden files | `ls -a` |
+| `ls -lh` | List with human-readable sizes | `ls -lh /var/log/nginx/` |
+| `ls -lt` | Sort by time (newest first) | `ls -lt` |
+| `ls -ltr` | Sort by time (oldest first) | `ls -ltr` |
+
+### Directory Management
+
+| Command | Fungsi | Contoh |
+|---------|--------|--------|
+| `mkdir` | Make directory | `mkdir mydir` |
+| `mkdir -p` | Make nested directories | `mkdir -p path/to/dir` |
+| `rmdir` | Remove empty directory | `rmdir olddir` |
+
+### File Operations
+
+| Command | Fungsi | Contoh |
+|---------|--------|--------|
+| `touch` | Create empty file | `touch file.txt` |
+| `cat` | Display file content | `cat index.html` |
+| `echo` | Print text | `echo "Hello"` |
+| `tee` | Write to file and stdout | `echo "text" \| sudo tee file.txt` |
+
+### System & User Commands
+
+| Command | Fungsi | Contoh |
+|---------|--------|--------|
+| `whoami` | Show current user | `whoami` |
+| `sudo` | Run as superuser | `sudo systemctl restart nginx` |
+| `systemctl` | Manage services | `sudo systemctl status nginx` |
+
+### Network
+
+| Command | Fungsi | Contoh |
+|---------|--------|--------|
+| `curl` | Transfer data from URL | `curl http://localhost` |
