@@ -142,7 +142,7 @@ ls -lh /var/log/nginx/
 
 ```bash
 # Pergi ke home directory
-cd ~
+cd /
 
 # List files
 ls
@@ -195,14 +195,11 @@ ls -la /var/www/html/
 ### Langkah 7: Sort by Time
 
 ```bash
-# Check nginx logs sorted by time (newest first)
+# Check newest first
 ls -lt /var/log/nginx/
 
-# Check oldest logs first (untuk cleanup)
+# Check oldest first
 ls -ltr /var/log/nginx/
-
-# Check system logs by time
-ls -lth /var/log/ | head -10
 ```
 
 ---
