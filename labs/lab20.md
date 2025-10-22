@@ -549,7 +549,7 @@ ls app-2024-0[123].log
 
 ---
 
-## Bahagian 9: Practikal
+## Bahagian 9: Praktikal
 
 ### Langkah 1: Explore Nginx Default Setup
 
