@@ -21,7 +21,7 @@
 
 ---
 
-## Bahagian 0: Connect ke EC2 Instance (5 minit)
+## Bahagian 0: Connect ke EC2 Instance
 
 ### Langkah 1: Connect Menggunakan Session Manager
 
@@ -52,7 +52,7 @@ Sekarang anda berada dalam bash shell dan ready untuk start lab.
 
 ---
 
-## Bahagian 1: Command pwd (10 minit)
+## Bahagian 1: Command pwd
 
 ### Langkah 1: Semak Lokasi Semasa
 
@@ -92,7 +92,7 @@ pwd
 
 ---
 
-## Bahagian 2: Struktur Direktori Linux (15 minit)
+## Bahagian 2: Struktur Direktori Linux
 
 ### Pengenalan Filesystem Hierarchy
 
@@ -136,7 +136,7 @@ ls -lh /var/log/nginx/
 
 ---
 
-## Bahagian 3: Command ls (25 minit)
+## Bahagian 3: Command ls
 
 ### Langkah 1: List Files Asas
 
@@ -207,7 +207,7 @@ ls -lth /var/log/ | head -10
 
 ---
 
-## Bahagian 4: Command cd (25 minit)
+## Bahagian 4: Command cd
 
 ### Langkah 1: Navigate ke Home Directory
 
@@ -315,7 +315,7 @@ pwd
 
 ---
 
-## Bahagian 5: Command mkdir (20 minit)
+## Bahagian 5: Command mkdir
 
 ### Langkah 1: Buat Single Directory
 
@@ -385,7 +385,7 @@ ls -ld public_folder private_folder
 
 ---
 
-## Bahagian 6: Command rmdir (15 minit)
+## Bahagian 6: Command rmdir
 
 ### Langkah 1: Buat Test Directories
 
@@ -430,7 +430,7 @@ ls cleanup
 
 ---
 
-## Bahagian 7: Tips & Shortcuts untuk DevOps (15 minit)
+## Bahagian 7: Tips & Shortcuts untuk DevOps
 
 ### Langkah 1: Tab Completion
 
@@ -503,7 +503,7 @@ ls app-2024-0[123].log
 
 ---
 
-## Bahagian 8: Practical DevOps - Working with Nginx (30 minit)
+## Bahagian 8: Practical DevOps - Working with Nginx
 
 ### Langkah 1: Install Nginx
 
@@ -686,7 +686,7 @@ pwd
 
 ---
 
-## Bahagian 9: Hands-On Exercise - Navigation Practice (20 minit)
+## Bahagian 9: Hands-On Exercise - Navigation Practice
 
 ### Exercise 1: Directory Navigation Challenge
 
