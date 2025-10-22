@@ -1,21 +1,18 @@
 ## LAB 20: Linux Command Asas - Navigasi & Pengurusan Fail (Sesi 1)
 
-### 🎯 Objektif
-
+### Objektif
 - Memahami struktur direktori Linux
 - Menguasai command navigasi asas (pwd, ls, cd)
 - Membuat dan mengurus direktori (mkdir, rmdir)
 - Memahami konsep path (absolute vs relative)
 
-### ⏱️ Durasi
-
+### Durasi
 2 jam
 
-### 📋 Prerequisites
-
-- EC2 instance running di public subnet & mempunyai Public IP
+### Prerequisites
+- EC2 instance running di public subnet dengan Public IP
 - Access ke terminal (SSH atau Session Manager)
-- Port 8080, 8081, 8082 dibuka dalam Security Group (untuk testing websites)
+- Port 8080, 8081, 8082 dibuka dalam Security Group
 
 ---
 
@@ -36,7 +33,6 @@ Linux menggunakan struktur tree yang bermula dari root (`/`):
 ```
 
 **Penting untuk DevOps:**
-
 - `/etc/` - config files untuk services (nginx, docker, etc.)
 - `/etc/nginx/` - nginx configuration files
 - `/var/log/` - application logs
@@ -72,57 +68,21 @@ ls -lh /var/log/nginx/
 pwd
 ```
 
-**Expected output:**
-
-```
-/home/ec2-user
-```
-
 ### Langkah 2: Praktis di Pelbagai Lokasi
 
 ```bash
 # Pergi ke root directory
 cd /
-
-# Semak lokasi
 pwd
-```
 
-**Expected output:**
-
-```
-/
-```
-
-```bash
 # Pergi ke /var/log
 cd /var/log
-
-# Semak lokasi
 pwd
-```
 
-**Expected output:**
-
-```
-/var/log
-```
-
-```bash
 # Balik ke home
 cd ~
-
-# Semak lokasi
 pwd
 ```
-
-**Expected output:**
-
-```
-/home/ec2-user
-```
-
-**✅ Success:** Anda faham command `pwd` untuk check current directory
 
 ---
 
@@ -145,21 +105,6 @@ ls
 ls -l
 ```
 
-**Output format:**
-
-```
-drwxr-xr-x 2 ec2-user ec2-user 4096 Oct 21 10:30 folder-name
--rw-r--r-- 1 ec2-user ec2-user  125 Oct 21 10:25 file.txt
-│││││││││ │ │        │        │    │             │
-│││││││││ │ │        │        │    │             └─ Nama
-│││││││││ │ │        │        │    └─ Date modified
-│││││││││ │ │        │        └─ Size (bytes)
-│││││││││ │ │        └─ Group
-│││││││││ │ └─ Owner
-│││││││││ └─ Number of links
-└────────── Permissions (d=directory, -=file)
-```
-
 ### Langkah 3: List Hidden Files
 
 ```bash
@@ -167,28 +112,11 @@ drwxr-xr-x 2 ec2-user ec2-user 4096 Oct 21 10:30 folder-name
 ls -a
 ```
 
-**Expected output akan show:**
-
-```
-.
-..
-.bash_logout
-.bash_profile
-.bashrc
-```
-
 ### Langkah 4: List Dengan Human-Readable Sizes
 
 ```bash
 # List dengan size yang mudah baca
 ls -lh
-```
-
-**Expected output:**
-
-```
--rw-r--r-- 1 ec2-user ec2-user 1.2K Oct 21 10:25 file.txt
--rw-r--r-- 1 ec2-user ec2-user  15M Oct 21 10:30 large.log
 ```
 
 ### Langkah 5: Combine Options
@@ -214,7 +142,7 @@ ls -lh /var/log/nginx/
 ls -la /usr/share/nginx/html/
 ```
 
-### Langkah 7: Sort by Time (Monitoring Log Files)
+### Langkah 7: Sort by Time
 
 ```bash
 # Check nginx logs sorted by time (newest first)
@@ -227,14 +155,6 @@ ls -ltr /var/log/nginx/
 ls -lth /var/log/ | head -10
 ```
 
-**Practical usage:** Ini penting untuk DevOps untuk:
-
-- Identify latest log files
-- Monitor which files are being actively written
-- Find old logs for cleanup
-
-**✅ Success:** Anda faham pelbagai cara guna `ls`
-
 ---
 
 ## Bahagian 4: Command cd (25 minit)
@@ -244,23 +164,11 @@ ls -lth /var/log/ | head -10
 ```bash
 # Method 1: Guna cd sahaja
 cd
-
-# Verify
 pwd
-```
 
-```bash
 # Method 2: Guna cd dengan ~
 cd ~
-
-# Verify
 pwd
-```
-
-**Expected output:**
-
-```
-/home/ec2-user
 ```
 
 ### Langkah 2: Navigate ke Root Directory
@@ -268,15 +176,7 @@ pwd
 ```bash
 # Pergi ke root
 cd /
-
-# Verify
 pwd
-```
-
-**Expected output:**
-
-```
-/
 ```
 
 ### Langkah 3: Navigate ke Nginx Directories
@@ -285,15 +185,7 @@ pwd
 # Pergi ke nginx config directory
 cd /etc/nginx
 pwd
-```
 
-**Expected output:**
-
-```
-/etc/nginx
-```
-
-```bash
 # List config files
 ls -l
 
@@ -310,27 +202,11 @@ ls -l sites-enabled/
 # Dari /etc/nginx, naik satu level
 cd ..
 pwd
-```
 
-**Expected output:**
-
-```
-/etc
-```
-
-```bash
 # Pergi ke nginx logs
 cd /var/log/nginx
 pwd
-```
 
-**Expected output:**
-
-```
-/var/log/nginx
-```
-
-```bash
 # List log files
 ls -lh
 ```
@@ -349,17 +225,9 @@ pwd
 # Balik ke previous directory (config)
 cd -
 pwd
-```
 
-**Expected output:**
-
-```
-/etc/nginx
-```
-
-```bash
 # Quick toggle between directories
-cd -  # akan balik ke /var/log/nginx
+cd -
 pwd
 ```
 
@@ -371,15 +239,7 @@ pwd
 # Dari mana-mana location, pergi ke nginx html directory
 cd /usr/share/nginx/html
 pwd
-```
 
-**Expected output:**
-
-```
-/usr/share/nginx/html
-```
-
-```bash
 # List files dalam html directory
 ls -la
 ```
@@ -393,33 +253,15 @@ cd /etc/nginx
 # Pergi ke conf.d menggunakan relative path
 cd conf.d
 pwd
-```
 
-**Expected output:**
-
-```
-/etc/nginx/conf.d
-```
-
-```bash
 # Balik ke parent directory
 cd ..
 pwd
-```
 
-**Expected output:**
-
-```
-/etc/nginx
-```
-
-```bash
 # Pergi ke sites-available menggunakan relative path
 cd sites-available
 pwd
 ```
-
-**✅ Success:** Anda faham navigate menggunakan absolute dan relative paths
 
 ---
 
@@ -438,15 +280,6 @@ sudo mkdir css js images
 ls -l
 ```
 
-**Expected output:**
-
-```
-drwxr-xr-x 2 root root 4096 Oct 22 10:00 css
-drwxr-xr-x 2 root root 4096 Oct 22 10:00 images
--rw-r--r-- 1 root root  615 Oct 21 09:30 index.html
-drwxr-xr-x 2 root root 4096 Oct 22 10:00 js
-```
-
 ### Langkah 2: Buat Project Structure
 
 ```bash
@@ -460,30 +293,7 @@ mkdir -p webapp/{deployment,monitoring,backup}
 ls -l webapp
 ```
 
-**Expected output:**
-
-```
-drwxr-xr-x 2 ec2-user ec2-user 4096 Oct 22 10:00 backup
-drwxr-xr-x 2 ec2-user ec2-user 4096 Oct 22 10:00 deployment
-drwxr-xr-x 2 ec2-user ec2-user 4096 Oct 22 10:00 monitoring
-```
-
 ### Langkah 3: Buat Nested Directories untuk Assets
-
-**❌ Cara yang GAGAL:**
-
-```bash
-# Cuba buat nested directory tanpa -p
-mkdir webapp/assets/images/products
-```
-
-**Expected error:**
-
-```
-mkdir: cannot create directory 'webapp/assets/images/products': No such file or directory
-```
-
-**✅ Cara yang BETUL:**
 
 ```bash
 # Guna -p untuk auto-create parent directories
@@ -492,24 +302,6 @@ mkdir -p assets/{images/{products,banners},css,js}
 
 # Verify structure
 ls -R assets
-```
-
-**Expected output:**
-
-```
-assets:
-css  images  js
-
-assets/css:
-
-assets/images:
-banners  products
-
-assets/images/banners:
-
-assets/images/products:
-
-assets/js:
 ```
 
 ### Langkah 4: Setup Nginx Site Structure
@@ -521,15 +313,6 @@ mkdir -p sites/myapp/{public,logs,ssl,backups}
 
 # Verify
 ls -l sites/myapp
-```
-
-**Expected output:**
-
-```
-drwxr-xr-x 2 ec2-user ec2-user 4096 Oct 22 10:05 backups
-drwxr-xr-x 2 ec2-user ec2-user 4096 Oct 22 10:05 logs
-drwxr-xr-x 2 ec2-user ec2-user 4096 Oct 22 10:05 public
-drwxr-xr-x 2 ec2-user ec2-user 4096 Oct 22 10:05 ssl
 ```
 
 ### Langkah 5: Buat Directory Dengan Specific Permissions
@@ -545,15 +328,6 @@ mkdir -m 700 private_data
 # Verify permissions
 ls -ld public_html private_data
 ```
-
-**Expected output:**
-
-```
-drwx------ 2 ec2-user ec2-user 4096 Oct 22 10:10 private_data
-drwxr-xr-x 2 ec2-user ec2-user 4096 Oct 22 10:10 public_html
-```
-
-**✅ Success:** Anda faham buat directories dengan pelbagai cara
 
 ---
 
@@ -577,17 +351,6 @@ rmdir test/empty/nested
 ls -R test
 ```
 
-**Expected output:**
-
-```
-test:
-empty  not-empty
-
-test/empty:
-
-test/not-empty:
-```
-
 ### Langkah 3: Cuba Remove Non-Empty Directory
 
 ```bash
@@ -596,12 +359,6 @@ touch test/not-empty/sample.txt
 
 # Cuba remove - akan GAGAL
 rmdir test/not-empty
-```
-
-**Expected error:**
-
-```
-rmdir: failed to remove 'test/not-empty': Directory not empty
 ```
 
 ### Langkah 4: Remove Nested Empty Directories
@@ -617,14 +374,6 @@ rmdir -p cleanup/level1/level2/level3
 ls cleanup
 ```
 
-**Expected error (good!):**
-
-```
-ls: cannot access 'cleanup': No such file or directory
-```
-
-**✅ Success:** Anda faham `rmdir` hanya untuk empty directories
-
 ---
 
 ## Bahagian 7: Tips & Shortcuts untuk DevOps (15 minit)
@@ -637,19 +386,9 @@ cd /var
 
 # Taip sebahagian, then tekan Tab
 cd l[Tab]
-```
 
-**Expected:** Auto-complete ke `cd log/` atau tunjuk options
-
-```bash
 # Double Tab untuk tunjuk semua options
 cd [Tab][Tab]
-```
-
-**Expected output:**
-
-```
-backups/ cache/ crash/ lib/ local/ lock/ log/ mail/ opt/ run/ snap/ spool/ tmp/
 ```
 
 ### Langkah 2: Command History
@@ -692,27 +431,6 @@ ls /var/log/nginx/*.log
 ls /usr/share/nginx/html/*.html
 ```
 
-**Expected output contoh:**
-
-```
-/var/log/nginx/access.log
-/var/log/nginx/error.log
-```
-
-```bash
-# Match specific patterns
-cd /var/log
-
-# List all .log files
-ls *.log
-
-# List all compressed logs
-ls *.gz
-
-# List nginx logs only
-ls nginx/*.log
-```
-
 ### Langkah 5: Practical Wildcard Usage
 
 ```bash
@@ -724,32 +442,16 @@ touch app-2024-01.log app-2024-02.log app-2024-03.log error.log access.log
 
 # List all app logs
 ls app-*.log
-```
 
-**Expected output:**
-
-```
-app-2024-01.log  app-2024-02.log  app-2024-03.log
-```
-
-```bash
 # Match with character set
 ls app-2024-0[123].log
 ```
-
-**Expected output:**
-
-```
-app-2024-01.log  app-2024-02.log  app-2024-03.log
-```
-
-**✅ Success:** Anda faham wildcards untuk DevOps tasks
 
 ---
 
 ## Bahagian 8: Practical DevOps - Working with Nginx (25 minit)
 
-### Langkah 1: Install Nginx (jika belum ada)
+### Langkah 1: Install Nginx
 
 ```bash
 # Install nginx
@@ -773,17 +475,6 @@ cd /usr/share/nginx/html
 
 # List files
 ls -la
-```
-
-**Expected output:**
-
-```
-total 20
-drwxr-xr-x 2 root root 4096 Oct 22 10:00 .
-drwxr-xr-x 4 root root 4096 Oct 22 10:00 ..
--rw-r--r-- 1 root root  497 Oct 21 09:30 50x.html
--rw-r--r-- 1 root root  615 Oct 21 09:30 index.html
--rw-r--r-- 1 root root 3650 Oct 21 09:30 nginx-logo.png
 ```
 
 ### Langkah 3: View Default index.html
@@ -842,7 +533,6 @@ sudo tee index.html > /dev/null << 'EOF'
         <h1>Welcome to My Website</h1>
         <p>This is <span class="version">Version 1.0</span></p>
         <p>Server: Site1</p>
-        <p>Last Updated: $(date)</p>
     </div>
 </body>
 </html>
@@ -858,7 +548,7 @@ cat index.html
 ### Langkah 6: Update Nginx Configuration
 
 ```bash
-# Navigate ke nginx sites-available
+# Navigate ke nginx conf.d
 cd /etc/nginx/conf.d
 
 # Create new site configuration
@@ -896,14 +586,12 @@ sudo systemctl status nginx
 ### Langkah 8: Verify Deployment
 
 ```bash
-# Test website (in terminal)
+# Test website in terminal
 curl http://localhost:8080
 
-# Or get server IP and test in browser
+# Get server IP and test
 curl http://$(hostname -I | awk '{print $1}'):8080
 ```
-
-**You should see:** Your custom HTML with "Version 1.0"
 
 ### Langkah 9: Make Changes and See Instant Updates
 
@@ -920,12 +608,6 @@ cat index.html | grep -i version
 
 # Test updated website
 curl http://localhost:8080 | grep -i version
-```
-
-**Expected output:**
-
-```
-        <p>This is <span class="version">Version 2.0</span></p>
 ```
 
 ### Langkah 10: Navigate Between Configurations and Logs
@@ -961,23 +643,11 @@ cd -
 pwd
 ```
 
-**✅ Success:** Anda telah deploy website dan lihat perubahan secara real-time!
-
-**Key Learnings:**
-
-- Setup nginx web directories
-- Create custom HTML content
-- Navigate between config, web root, and logs
-- Make changes and verify instantly
-- Understand real DevOps workflow
-
 ---
 
 ## Bahagian 9: Hands-On Final Exercise - Multiple Sites (30 minit)
 
 ### Exercise 1: Deploy Multiple Websites
-
-**Scenario:** Deploy 2 websites yang berbeza dengan versions yang berbeza.
 
 ```bash
 # 1. Create directories untuk 2 sites
@@ -1013,7 +683,7 @@ sudo tee index.html > /dev/null << 'EOF'
 </head>
 <body>
     <div class="container">
-        <h1>🌟 My Awesome Blog</h1>
+        <h1>My Awesome Blog</h1>
         <p>Version: <span class="version">1.0</span></p>
         <p>Status: Production</p>
         <p>Type: Blog Platform</p>
@@ -1052,7 +722,7 @@ sudo tee index.html > /dev/null << 'EOF'
 </head>
 <body>
     <div class="container">
-        <h1>🛒 My Online Shop</h1>
+        <h1>My Online Shop</h1>
         <p>Version: <span class="version">1.0</span></p>
         <p>Status: Production</p>
         <p>Type: E-commerce Platform</p>
@@ -1145,8 +815,6 @@ pwd
 
 ### Exercise 3: Navigation Challenge
 
-**Task:** Practice navigating between different website directories
-
 ```bash
 # 1. Start dari home
 cd ~
@@ -1216,14 +884,6 @@ echo "Shop Version:"
 curl -s http://localhost:8082 | grep -i "version"
 ```
 
-**✅ Success:** Anda telah:
-
-- Deploy multiple websites
-- Update versions independently
-- Navigate efficiently between directories
-- Verify changes in real-time
-- Manage configurations per site
-
 ---
 
 ## Bahagian 10: Cleanup (Optional)
@@ -1242,58 +902,46 @@ sudo rm -rf /var/www/shop
 
 ---
 
----
-
-## 🎓 Kesimpulan
+## Kesimpulan
 
 Dalam lab ini anda telah belajar:
 
-✅ Struktur direktori Linux untuk DevOps  
-✅ Navigate nginx directories (/etc/nginx, /var/log/nginx, /usr/share/nginx/html)  
-✅ Command `pwd` untuk check current location  
-✅ Command `ls` dengan pelbagai options untuk monitoring  
-✅ Command `cd` untuk navigation efficiency  
-✅ Command `mkdir` untuk buat web directories  
-✅ Command `rmdir` untuk remove empty directories  
-✅ Absolute vs relative paths dalam web deployment  
-✅ Tab completion & shortcuts untuk productivity  
-✅ Wildcards untuk pattern matching logs dan configs  
-✅ **Deploy real nginx websites dengan HTML**  
-✅ **Update websites dan verify changes instantly**  
-✅ **Manage multiple sites dengan different versions**  
+- Struktur direktori Linux untuk DevOps
+- Navigate nginx directories (/etc/nginx, /var/log/nginx, /usr/share/nginx/html)
+- Command pwd untuk check current location
+- Command ls dengan pelbagai options untuk monitoring
+- Command cd untuk navigation efficiency
+- Command mkdir untuk buat web directories
+- Command rmdir untuk remove empty directories
+- Absolute vs relative paths dalam web deployment
+- Tab completion & shortcuts untuk productivity
+- Wildcards untuk pattern matching logs dan configs
+- Deploy real nginx websites dengan HTML
+- Update websites dan verify changes instantly
+- Manage multiple sites dengan different versions
 
 ### Command Summary
 
 | Command | Fungsi | Contoh DevOps |
 |---------|--------|--------|
-| `pwd` | Print working directory | `pwd` (check if in correct directory) |
-| `ls` | List files | `ls -lh /var/log/nginx/` (check logs) |
-| `ls -lt` | Sort by time | `ls -lt /var/log/nginx/` (find latest logs) |
+| `pwd` | Print working directory | `pwd` |
+| `ls` | List files | `ls -lh /var/log/nginx/` |
+| `ls -lt` | Sort by time | `ls -lt /var/log/nginx/` |
 | `cd` | Change directory | `cd /etc/nginx/conf.d` |
 | `cd ~` | Go to home | `cd ~` |
-| `cd ..` | Go to parent | `cd ..` (from /var/www/site1/html to /var/www/site1) |
-| `cd -` | Go to previous | `cd -` (toggle between config and web root) |
+| `cd ..` | Go to parent | `cd ..` |
+| `cd -` | Go to previous | `cd -` |
 | `mkdir` | Make directory | `sudo mkdir -p /var/www/mysite/html` |
 | `mkdir -p` | Make nested directories | `mkdir -p site/{html,logs,ssl}` |
 | `rmdir` | Remove empty directory | `rmdir old_site` |
 
-### Real DevOps Scenarios Practiced
-
-1. ✅ Deploy nginx website dengan custom HTML
-2. ✅ Update website versions (1.0 → 2.0)  
-3. ✅ Navigate between config, web root, dan logs efficiently
-4. ✅ Manage multiple sites simultaneously
-5. ✅ Verify deployments dengan curl
-6. ✅ Use wildcards untuk find config dan log files
-
 ---
 
-## ✅ Lab 20 Checklist
+## Lab 20 Checklist
 
 Pastikan anda boleh:
 
 **Basic Navigation:**
-
 - [ ] Tahu current position dengan `pwd`
 - [ ] List files dengan `ls -l`, `ls -a`, `ls -lah`
 - [ ] Navigate menggunakan absolute path
@@ -1302,20 +950,18 @@ Pastikan anda boleh:
 - [ ] Pergi ke parent dengan `cd ..`
 - [ ] Toggle between directories dengan `cd -`
 - [ ] Guna Tab completion
-- [ ] Guna wildcards (`*`, `?`, `[]`)
+- [ ] Guna wildcards
 
 **Directory Management:**
-
 - [ ] Buat directory dengan `mkdir`
 - [ ] Buat nested directories dengan `mkdir -p`
 - [ ] Remove empty directory dengan `rmdir`
 - [ ] Setup complex directory structure dalam satu command
 
 **DevOps Practical:**
-
-- [ ] Navigate ke nginx config directory (/etc/nginx)
-- [ ] Navigate ke nginx web root (/usr/share/nginx/html)
-- [ ] Navigate ke nginx logs (/var/log/nginx)
+- [ ] Navigate ke nginx config directory
+- [ ] Navigate ke nginx web root
+- [ ] Navigate ke nginx logs
 - [ ] Install dan configure nginx
 - [ ] Create custom HTML files
 - [ ] Deploy website dan verify dengan curl
