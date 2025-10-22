@@ -1,16 +1,5 @@
 ## LAB 20: Linux Command Asas - Navigasi & Pengurusan Fail (Sesi 1)
 
-### Objektif
-
-- Memahami struktur direktori Linux
-- Menguasai command navigasi asas (pwd, ls, cd)
-- Membuat dan mengurus direktori (mkdir, rmdir)
-- Memahami konsep path (absolute vs relative)
-
-### Durasi
-
-2 jam 5 minit
-
 ### Prerequisites
 
 - EC2 instance Ubuntu running di public subnet dengan Public IP
