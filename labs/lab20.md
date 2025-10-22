@@ -640,17 +640,48 @@ ls -lh index.html
 cat index.html
 ```
 
-### Langkah 6: Update Nginx Configuration
+### Langkah 5: Create Nginx Site Configuration
+
+**Nota:** Ubuntu nginx guna konsep `sites-available` dan `sites-enabled`:
+- `sites-available` - semua config files (active atau tidak)
+- `sites-enabled` - symbolic links ke configs yang active
 
 ```bash
-# Backup default config first
-sudo cp /etc/nginx/nginx.conf /etc/nginx/nginx.conf.backup
+# Navigate ke sites-available
+cd /etc/nginx/sites-available
 
-# Update nginx to point to our custom site
-sudo sed -i 's|root.*html;|root /var/www/site1/html;|' /etc/nginx/nginx.conf
+# Create new site configuration
+sudo tee mysite > /dev/null << 'EOF'
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    
+    root /var/www/site1/html;
+    index index.html;
+    
+    server_name _;
+    
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+EOF
 
-# Verify changes
-grep "root" /etc/nginx/nginx.conf
+# Verify config created
+cat mysite
+```
+
+### Langkah 6: Enable Site Configuration
+
+```bash
+# Remove default site
+sudo rm /etc/nginx/sites-enabled/default
+
+# Enable our new site (create symbolic link)
+sudo ln -s /etc/nginx/sites-available/mysite /etc/nginx/sites-enabled/
+
+# Verify symbolic link created
+ls -l /etc/nginx/sites-enabled/
 ```
 
 ### Langkah 7: Test and Reload Nginx
