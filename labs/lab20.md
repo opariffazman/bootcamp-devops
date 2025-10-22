@@ -7,13 +7,45 @@
 - Memahami konsep path (absolute vs relative)
 
 ### Durasi
-2 jam
+2 jam 5 minit
 
 ### Prerequisites
 - EC2 instance Ubuntu running di public subnet dengan Public IP
-- Access ke terminal (SSH atau Session Manager)
+- IAM Instance Profile dengan SSM permissions (dari lab sebelumnya)
+- Access ke terminal menggunakan Session Manager (SSM)
 - Port 80 dibuka dalam Security Group (HTTP)
 - Nginx installed (rujuk [Lab 8](lab8.md) jika belum install)
+
+---
+
+## Bahagian 0: Connect ke EC2 Instance (5 minit)
+
+### Langkah 1: Connect Menggunakan Session Manager
+
+1. Pergi ke EC2 Console
+2. Select instance anda
+3. Click **Connect**
+4. Pilih tab **Session Manager**
+5. Click **Connect**
+
+### Langkah 2: Switch ke Bash Shell
+
+Selepas connect, anda akan berada dalam `sh` shell. Tukar ke `bash` untuk pengalaman yang lebih baik:
+
+```bash
+# Check current shell
+echo $SHELL
+
+# Switch to bash
+bash
+
+# Verify you're in bash
+echo $SHELL
+```
+
+Sekarang anda berada dalam bash shell dan ready untuk start lab.
+
+**Nota:** Jika anda disconnect dan reconnect, anda perlu run `bash` command semula.
 
 ---
 
