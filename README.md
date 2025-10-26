@@ -59,4 +59,5 @@
 ### 🎯 SESI 11: LINUX 1
 
 [LAB20](/labs/lab20.md): LINUX 1
+
 [LAB21](/labs/lab21.md): LINUX 2
