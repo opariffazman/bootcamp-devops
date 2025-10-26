@@ -1,4 +1,4 @@
-## LAB 21: Linux Command Asas - File Operations (Sesi 2)
+## LAB 21: Linux Command Asas - Operasi Fail
 
 ## Bahagian 0: Connect & Verify Environment
 
@@ -574,7 +574,44 @@ grep "Version" /var/www/backups/index-v3-backup.html
 
 ---
 
-## Bahagian 11: Quick Reference - Cara Buat File
+## Bahagian 11: Command find (Search Files)
+
+### Langkah 1: Find by Name
+
+```bash
+# Find file dengan nama spesifik
+cd /var/www/site1/html
+
+# Find index.html
+find . -name "index.html"
+
+# Find all HTML files
+find . -name "*.html"
+```
+
+### Langkah 2: Find dalam Multiple Directories
+
+```bash
+# Find all HTML files dalam /var/www
+find /var/www -name "*.html"
+
+# Find all backup files
+find /var/www/backups -name "index-*.html"
+```
+
+### Langkah 3: Find by Type
+
+```bash
+# Find files only (bukan directory)
+find /var/www/site1/html -type f
+
+# Find directories only
+find /var/www -type d
+```
+
+---
+
+## Bahagian 12: Quick Reference - Cara Buat File
 
 ### Method 1: echo dengan >
 
@@ -650,3 +687,13 @@ echo "Content" | sudo tee file.txt > /dev/null
 | `cp file backup` | Copy file | `cp index.html backup.html` |
 | `mv old new` | Rename file | `mv old.html new.html` |
 | `mv file dir/` | Move file | `mv file.txt backup/` |
+
+### Search Commands
+
+| Command | Fungsi | Contoh |
+|---------|--------|--------|
+| `grep "text" file` | Search text in file | `grep "Version" index.html` |
+| `find . -name "file"` | Find file by name | `find . -name "*.html"` |
+| `find . -type f` | Find files only | `find /var/www -type f` |
+
+---
