@@ -233,7 +233,7 @@ curl localhost | grep "Welcome"
 
 ## Bahagian 6: Command tee vs Redirector
 
-### Langkah 1: Understanding tee
+### Langkah 1: Fahami tee
 
 **tee - Write to file AND display to screen at same time**
 
@@ -250,7 +250,7 @@ echo "Test with tee" | tee tee.txt
 
 **Nota:** `tee` berguna bila nak save output DAN tengok sekali.
 
-### Langkah 2: tee vs Redirector Comparison
+### Langkah 2: tee vs Redirector
 
 ```bash
 # Redirector > - silent (no screen output)
@@ -272,58 +272,19 @@ cat method2.txt
 - `tee` = Write ke file DAN display di screen
 - `tee -a` = Append mode (sama seperti >>)
 
-### Langkah 3: Why Use tee with sudo
+### Langkah 3: Guna tee jika perlu sudo
 
 ```bash
-# Navigate to website
 cd /var/www/site1/html
 
-# This will FAIL - sudo doesn't apply to redirector
+# akan gagal
 sudo echo "test" > test-fail.txt
 
-# This WORKS - tee gets sudo permission
+# akan lulus
 echo "test" | sudo tee test-success.txt > /dev/null
 
 # Verify
 ls -l test-success.txt
-```
-
-**Nota:** Bila perlu sudo untuk write file, guna `tee` instead of `>`.
-
-### Langkah 4: Update Website with tee
-
-```bash
-# Navigate to website
-cd /var/www/site1/html
-
-# Backup current index.html first
-sudo cp index.html index.html.backup
-
-# Create new version using tee
-sudo tee index.html > /dev/null << 'EOF'
-<!DOCTYPE html>
-<html>
-<head>
-    <title>My Website - Version 2.0</title>
-    <style>
-        body {
-            font-family: Arial;
-            margin: 40px;
-            background-color: #e0f7fa;
-        }
-        h1 { color: #00695c; }
-    </style>
-</head>
-<body>
-    <h1>Welcome to My Website</h1>
-    <p>Version: 2.0</p>
-    <p>Last Updated: Today</p>
-</body>
-</html>
-EOF
-
-# Test the update
-curl localhost
 ```
 
 ---
