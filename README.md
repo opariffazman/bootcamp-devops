@@ -55,3 +55,8 @@
 [LAB18](/labs/lab18.md): NAT Gateway (💰 Ada kos - pastikan cleanup!)
 
 [LAB19](/labs/lab19.md): VPC Endpoints (Lebih murah untuk AWS services)
+
+### 🎯 SESI 11: LINUX 1
+
+[LAB20](/labs/lab20.md): LINUX 1
+[LAB21](/labs/lab21.md): LINUX 2
