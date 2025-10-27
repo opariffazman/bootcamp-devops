@@ -56,6 +56,8 @@
 
 [LAB19](/labs/lab19.md): VPC Endpoints (Lebih murah untuk AWS services)
 
+---
+
 ### 🎯 SESI 11: Asas Linux
 
 [LAB20](/labs/lab20.md): Navigasi Fail
