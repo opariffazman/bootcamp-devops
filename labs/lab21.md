@@ -322,9 +322,9 @@ find /var/www -type d
 
 | Command | Fungsi | Contoh |
 |---------|--------|--------|
-| `touch file` | Create empty file | `touch test.txt` |
+| `touch file` | Create empty file or update timestamp | `touch test.txt` |
 | `echo "text" > file` | Create file with text | `echo "hello" > test.txt` |
-| `cat > file` | Create file interactively | `cat > test.txt` |
+| `echo "text" >> file` | Update file with text | `echo "hello 2" >> test.txt` |
 | `tee file` | Write and display | `echo "text" \| tee file.txt` |
 
 ### File Viewing
