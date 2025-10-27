@@ -9,22 +9,6 @@
 3. Click **Connect** > **Session Manager** > **Connect**
 4. Switch to bash: `bash`
 
-### Langkah 2: Verify Nginx Setup
-
-```bash
-# Check nginx running
-sudo systemctl status nginx
-
-# Navigate to website directory
-cd /var/www/site1/html
-
-# Check current file
-ls -l
-
-# Test current site
-curl localhost
-```
-
 ---
 
 ## Bahagian 1: Command touch
