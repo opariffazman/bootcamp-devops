@@ -1,4 +1,4 @@
-## LAB 20: Linux Command Asas - Navigasi & Pengurusan Fail (Sesi 1)
+## LAB 20: Linux Command Asas - Navigasi Fail (Sesi 1)
 
 ### Prerequisites
 
