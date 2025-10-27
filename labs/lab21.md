@@ -1,8 +1,12 @@
 ## LAB 21: Linux Command Asas - Operasi Fail
 
-## Bahagian 0: Connect & Verify Environment
+### Prerequisites
 
-### Langkah 1: Connect ke Instance
+- Selesai [Lab 20](lab20.md)
+
+## Bahagian 0: Connect ke EC2 Instance
+
+### Langkah 1: Connect Menggunakan Session Manager
 
 1. Pergi ke EC2 Console
 2. Select instance anda
