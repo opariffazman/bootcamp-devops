@@ -1,4 +1,4 @@
-## LAB 21: Linux Command Asas - Operasi Fail
+## LAB 21: Operasi Fail
 
 ### Prerequisites
 
