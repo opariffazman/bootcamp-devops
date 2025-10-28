@@ -58,7 +58,7 @@
 
 ---
 
-### 🎯 SESI 11: Asas Linux
+### 🎯 SESI 11 - 14: Asas Linux
 
 [LAB20](/labs/lab20.md): Navigasi Fail
 

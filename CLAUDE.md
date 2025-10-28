@@ -61,7 +61,7 @@ Labs are organized into sessions covering different topics:
 - **Lab 18**: NAT Gateway (has cost implications - requires cleanup)
 - **Lab 19**: VPC Endpoints (cost-effective alternative for AWS services)
 
-### Sesi 11: Linux Basics (Labs 20-21)
+### Sesi 11-14: Linux Basics (Labs 20-21)
 - **Lab 20**: File navigation (`pwd`, `ls`, `cd`, `mkdir`, `rmdir`, permissions)
 - **Lab 21**: File operations
 
