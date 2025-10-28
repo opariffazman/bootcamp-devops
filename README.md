@@ -63,3 +63,5 @@
 [LAB20](/labs/lab20.md): Navigasi Fail
 
 [LAB21](/labs/lab21.md): Operasi Fail
+
+[LAB21.5](/labs/lab21.5.md): Setup IAM User & AWS CLI untuk SSM
