@@ -22,7 +22,7 @@
 **touch - Cipta fail atau update timestamp fail**
 
 ```bash
-cd /var/www/html/
+cd /var/www/site1/html
 ```
 
 ```bash
