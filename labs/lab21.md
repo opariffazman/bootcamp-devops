@@ -22,11 +22,15 @@
 **touch - Cipta fail atau update timestamp fail**
 
 ```bash
+cd /var/www/html/
+```
+
+```bash
 ls -l index.html
 ```
 
 ```bash
-sudo touch index.HTML
+sudo touch index.html
 ```
 
 ```bash
