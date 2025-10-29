@@ -212,8 +212,15 @@ ls -l hello.sh
 
 ### Langkah 4: Skrip dengan pembolehubah (variables)
 
+**Cipta script menggunakan nano editor**
+
 ```bash
-cat > variables.sh << 'EOF'
+nano variables.sh
+```
+
+**Taip kandungan berikut:**
+
+```bash
 #!/bin/bash
 
 # Variables
@@ -224,8 +231,20 @@ echo "Welcome, $NAME"
 echo "Script Version: $VERSION"
 echo "Current User: $(whoami)"
 echo "Current Date: $(date +%Y-%m-%d)"
-EOF
 ```
+
+**Simpan dan keluar:**
+- Tekan `Ctrl + O` untuk save
+- Tekan `Enter` untuk confirm
+- Tekan `Ctrl + X` untuk keluar dari nano
+
+**Verify kandungan:**
+
+```bash
+cat variables.sh
+```
+
+**Jalankan script:**
 
 ```bash
 chmod +x variables.sh
@@ -239,7 +258,12 @@ chmod +x variables.sh
 ### Langkah 1: Skrip dengan if statement
 
 ```bash
-cat > check-file.sh << 'EOF'
+nano check-file.sh
+```
+
+**Taip kandungan berikut:**
+
+```bash
 #!/bin/bash
 
 FILE="test.txt"
@@ -249,8 +273,9 @@ if [ -f "$FILE" ]; then
 else
     echo "✗ File $FILE tidak wujud"
 fi
-EOF
 ```
+
+**Simpan:** `Ctrl + O`, `Enter`, `Ctrl + X`
 
 ```bash
 chmod +x check-file.sh
@@ -270,7 +295,12 @@ touch test.txt
 ### Langkah 3: Skrip check service
 
 ```bash
-cat > check-nginx.sh << 'EOF'
+nano check-nginx.sh
+```
+
+**Taip kandungan berikut:**
+
+```bash
 #!/bin/bash
 
 if systemctl is-active --quiet nginx; then
@@ -279,8 +309,9 @@ if systemctl is-active --quiet nginx; then
 else
     echo "✗ Nginx is not running"
 fi
-EOF
 ```
+
+**Simpan:** `Ctrl + O`, `Enter`, `Ctrl + X`
 
 ```bash
 chmod +x check-nginx.sh
@@ -294,7 +325,12 @@ chmod +x check-nginx.sh
 ### Langkah 1: For loop asas
 
 ```bash
-cat > for-loop.sh << 'EOF'
+nano for-loop.sh
+```
+
+**Taip kandungan berikut:**
+
+```bash
 #!/bin/bash
 
 echo "=== Counting 1 to 5 ==="
@@ -302,8 +338,9 @@ for i in 1 2 3 4 5
 do
     echo "Number: $i"
 done
-EOF
 ```
+
+**Simpan:** `Ctrl + O`, `Enter`, `Ctrl + X`
 
 ```bash
 chmod +x for-loop.sh
@@ -313,7 +350,12 @@ chmod +x for-loop.sh
 ### Langkah 2: For loop dengan range
 
 ```bash
-cat > for-range.sh << 'EOF'
+nano for-range.sh
+```
+
+**Taip kandungan berikut:**
+
+```bash
 #!/bin/bash
 
 echo "=== Creating backup files ==="
@@ -324,8 +366,9 @@ do
 done
 
 ls -l backup-*.txt
-EOF
 ```
+
+**Simpan:** `Ctrl + O`, `Enter`, `Ctrl + X`
 
 ```bash
 chmod +x for-range.sh
@@ -335,7 +378,12 @@ chmod +x for-range.sh
 ### Langkah 3: For loop untuk files
 
 ```bash
-cat > list-html.sh << 'EOF'
+nano list-html.sh
+```
+
+**Taip kandungan berikut:**
+
+```bash
 #!/bin/bash
 
 echo "=== HTML Files in /var/www/site1/html ==="
@@ -346,8 +394,9 @@ do
         echo "  Size: $(ls -lh $file | awk '{print $5}')"
     fi
 done
-EOF
 ```
+
+**Simpan:** `Ctrl + O`, `Enter`, `Ctrl + X`
 
 ```bash
 chmod +x list-html.sh
@@ -361,7 +410,12 @@ chmod +x list-html.sh
 ### Langkah 1: While loop asas
 
 ```bash
-cat > while-loop.sh << 'EOF'
+nano while-loop.sh
+```
+
+**Taip kandungan berikut:**
+
+```bash
 #!/bin/bash
 
 echo "=== Countdown from 5 ==="
@@ -375,8 +429,9 @@ do
 done
 
 echo "Done!"
-EOF
 ```
+
+**Simpan:** `Ctrl + O`, `Enter`, `Ctrl + X`
 
 ```bash
 chmod +x while-loop.sh
@@ -386,7 +441,12 @@ chmod +x while-loop.sh
 ### Langkah 2: While loop membaca file
 
 ```bash
-cat > read-file.sh << 'EOF'
+nano read-file.sh
+```
+
+**Taip kandungan berikut:**
+
+```bash
 #!/bin/bash
 
 if [ ! -f "colors.txt" ]; then
@@ -399,8 +459,9 @@ while read line
 do
     echo "Color: $line"
 done < colors.txt
-EOF
 ```
+
+**Simpan:** `Ctrl + O`, `Enter`, `Ctrl + X`
 
 ```bash
 chmod +x read-file.sh
@@ -414,7 +475,12 @@ chmod +x read-file.sh
 ### Langkah 1: Backup script
 
 ```bash
-cat > backup-website.sh << 'EOF'
+nano backup-website.sh
+```
+
+**Taip kandungan berikut:**
+
+```bash
 #!/bin/bash
 
 # Configuration
@@ -449,8 +515,9 @@ fi
 echo ""
 echo "=== All Backups ==="
 sudo ls -lh "$BACKUP_DIR"
-EOF
 ```
+
+**Simpan:** `Ctrl + O`, `Enter`, `Ctrl + X`
 
 ```bash
 chmod +x backup-website.sh
@@ -465,7 +532,12 @@ chmod +x backup-website.sh
 ### Langkah 3: System monitoring script
 
 ```bash
-cat > system-info.sh << 'EOF'
+nano system-info.sh
+```
+
+**Taip kandungan berikut:**
+
+```bash
 #!/bin/bash
 
 echo "=================================="
@@ -502,8 +574,9 @@ systemctl list-units --type=service --state=running | grep -E "nginx|amazon-ssm-
 
 echo ""
 echo "=================================="
-EOF
 ```
+
+**Simpan:** `Ctrl + O`, `Enter`, `Ctrl + X`
 
 ```bash
 chmod +x system-info.sh
@@ -513,7 +586,12 @@ chmod +x system-info.sh
 ### Langkah 4: User management script
 
 ```bash
-cat > create-users.sh << 'EOF'
+nano create-users.sh
+```
+
+**Taip kandungan berikut:**
+
+```bash
 #!/bin/bash
 
 echo "=== Bulk User Creation Script ==="
@@ -536,8 +614,9 @@ done
 echo ""
 echo "=== User List ==="
 cat /etc/passwd | grep -E "developer|operator"
-EOF
 ```
+
+**Simpan:** `Ctrl + O`, `Enter`, `Ctrl + X`
 
 ```bash
 chmod +x create-users.sh
@@ -551,7 +630,12 @@ chmod +x create-users.sh
 ### Langkah 1: Script dengan arguments
 
 ```bash
-cat > greet.sh << 'EOF'
+nano greet.sh
+```
+
+**Taip kandungan berikut:**
+
+```bash
 #!/bin/bash
 
 # Check if name parameter provided
@@ -563,8 +647,9 @@ fi
 NAME=$1
 echo "Hello, $NAME!"
 echo "Welcome to DevOps Bootcamp"
-EOF
 ```
+
+**Simpan:** `Ctrl + O`, `Enter`, `Ctrl + X`
 
 ```bash
 chmod +x greet.sh
@@ -587,7 +672,12 @@ chmod +x greet.sh
 ### Langkah 3: Script dengan multiple parameters
 
 ```bash
-cat > file-ops.sh << 'EOF'
+nano file-ops.sh
+```
+
+**Taip kandungan berikut:**
+
+```bash
 #!/bin/bash
 
 # Check parameters
@@ -627,8 +717,9 @@ case $OPERATION in
         exit 1
         ;;
 esac
-EOF
 ```
+
+**Simpan:** `Ctrl + O`, `Enter`, `Ctrl + X`
 
 ```bash
 chmod +x file-ops.sh
